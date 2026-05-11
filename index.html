@@ -2,133 +2,117 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mario Listyo - Portfolio</title>
+<title>Mario Listyo Portfolio</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Arial', sans-serif; font-size: 11px; background: #000; overflow: hidden; height: 100vh; width: 100vw; user-select: none; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:Arial,sans-serif; font-size:11px; background:#000; overflow:hidden; height:100vh; width:100vw; user-select:none; }
 
-  /* BOOT */
-  #boot { position: fixed; inset: 0; background: #000; color: #aaa; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; }
-  #boot-logo { color: #fff; font-size: 28px; font-weight: bold; letter-spacing: 2px; margin-bottom: 8px; }
-  #boot-sub { color: #aaa; font-size: 11px; margin-bottom: 40px; letter-spacing: 1px; }
-  #boot-bar-wrap { width: 280px; height: 22px; border: 2px inset #888; background: #000; padding: 2px; margin-bottom: 12px; }
-  #boot-bar { height: 100%; width: 0%; background: #000080; transition: width 0.05s linear; }
-  #boot-status { color: #aaa; font-size: 10px; letter-spacing: 1px; min-height: 14px; }
-  #boot-copy { position: absolute; bottom: 24px; color: #555; font-size: 10px; }
+/* BOOT */
+#boot { position:fixed; inset:0; background:#000; color:#aaa; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:9999; }
+#boot-logo { color:#fff; font-size:28px; font-weight:bold; letter-spacing:2px; margin-bottom:8px; }
+#boot-sub { color:#aaa; font-size:11px; margin-bottom:40px; }
+#boot-bar-wrap { width:280px; height:22px; border:2px inset #888; background:#000; padding:2px; margin-bottom:12px; }
+#boot-bar { height:100%; width:0%; background:#000080; }
+#boot-status { color:#aaa; font-size:10px; min-height:14px; }
+#boot-copy { position:absolute; bottom:24px; color:#555; font-size:10px; }
 
-  /* DESKTOP */
-  #desktop { position: fixed; inset: 0; display: none; overflow: hidden; }
-  #desktop.show { display: block; }
+/* DESKTOP */
+#desktop { position:fixed; inset:0; display:none; }
+#desktop.show { display:block; }
 
-  /* XP BLISS WALLPAPER */
-  #wallpaper {
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse 60% 40% at 30% 70%, #4a8f3f 0%, #2d6e1e 30%, #1a4d0f 55%, transparent 75%),
-      radial-gradient(ellipse 80% 50% at 70% 85%, #3d7a30 0%, #2a6020 40%, transparent 70%),
-      radial-gradient(ellipse 50% 35% at 55% 78%, #5aa040 0%, #3d7a28 45%, transparent 70%),
-      radial-gradient(ellipse 40% 30% at 15% 80%, #3a7525 0%, transparent 60%),
-      radial-gradient(ellipse 90% 60% at 50% 100%, #2d6018 0%, #1e4d0e 40%, transparent 70%),
-      linear-gradient(180deg, #4ec4f0 0%, #74d4f8 15%, #a8e6ff 28%, #c8f0ff 38%, #b0e8f8 45%, #88d0ee 52%, #5bb5e0 58%, #3a9dce 65%, #2080b8 72%),
-      linear-gradient(to bottom, #3a9dce 72%, #2d8ab0 80%, #3a9e6a 85%, #4ab85a 90%, #3d9648 95%, #2d7030 100%);
-    background-size: 100% 100%;
-  }
+/* XP BLISS WALLPAPER */
+#wallpaper {
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 30% 70%, #4a8f3f 0%, #2d6e1e 30%, #1a4d0f 55%, transparent 75%),
+    radial-gradient(ellipse 80% 50% at 70% 85%, #3d7a30 0%, #2a6020 40%, transparent 70%),
+    radial-gradient(ellipse 50% 35% at 55% 78%, #5aa040 0%, #3d7a28 45%, transparent 70%),
+    radial-gradient(ellipse 90% 60% at 50% 100%, #2d6018 0%, #1e4d0e 40%, transparent 70%),
+    linear-gradient(180deg,#4ec4f0 0%,#74d4f8 15%,#a8e6ff 28%,#c8f0ff 38%,#b0e8f8 45%,#88d0ee 52%,#5bb5e0 58%,#3a9dce 65%,#2080b8 72%),
+    linear-gradient(to bottom,#3a9dce 72%,#2d8ab0 80%,#3a9e6a 85%,#4ab85a 90%,#3d9648 95%,#2d7030 100%);
+}
+#wallpaper::before {
+  content:''; position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 120px 40px at 15% 18%,rgba(255,255,255,.92) 0%,rgba(255,255,255,.7) 40%,transparent 70%),
+    radial-gradient(ellipse 90px 30px at 22% 15%,rgba(255,255,255,.85) 0%,rgba(255,255,255,.5) 50%,transparent 75%),
+    radial-gradient(ellipse 160px 50px at 75% 12%,rgba(255,255,255,.9) 0%,rgba(255,255,255,.65) 45%,transparent 70%),
+    radial-gradient(ellipse 80px 28px at 45% 8%,rgba(255,255,255,.7) 0%,rgba(255,255,255,.4) 50%,transparent 70%);
+}
 
-  /* White fluffy clouds */
-  #wallpaper::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 120px 40px at 15% 18%, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.7) 40%, transparent 70%),
-      radial-gradient(ellipse 90px 30px at 22% 15%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.5) 50%, transparent 75%),
-      radial-gradient(ellipse 100px 35px at 8% 22%, rgba(255,255,255,0.7) 0%, transparent 65%),
-      radial-gradient(ellipse 160px 50px at 75% 12%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.65) 45%, transparent 70%),
-      radial-gradient(ellipse 120px 40px at 82% 9%, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.5) 50%, transparent 72%),
-      radial-gradient(ellipse 100px 35px at 68% 16%, rgba(255,255,255,0.75) 0%, transparent 65%),
-      radial-gradient(ellipse 80px 28px at 45% 8%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.4) 50%, transparent 70%),
-      radial-gradient(ellipse 55px 20px at 40% 5%, rgba(255,255,255,0.65) 0%, transparent 65%);
-  }
+/* ICONS */
+.desk-icon { position:absolute; display:flex; flex-direction:column; align-items:center; gap:2px; cursor:pointer; padding:4px; width:72px; }
+.desk-icon .icon-img { width:32px; height:32px; }
+.desk-icon .icon-label { font-size:11px; color:#fff; text-align:center; padding:1px 3px; text-shadow:1px 1px 2px #000; }
+.desk-icon:hover .icon-label, .desk-icon.selected .icon-label { background:#000080; }
 
-  /* DESKTOP ICONS */
-  .desk-icon { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 2px; cursor: pointer; padding: 4px; width: 72px; }
-  .desk-icon:hover .icon-label { background: #000080; color: #fff; }
-  .desk-icon .icon-img { width: 32px; height: 32px; }
-  .desk-icon .icon-label { font-size: 11px; color: #fff; text-align: center; padding: 1px 3px; background: transparent; word-break: break-word; line-height: 1.3; text-shadow: 1px 1px 2px #000; }
-  .desk-icon.selected .icon-label { background: #000080; color: #fff; }
+/* WINDOWS */
+.win { position:absolute; background:#c0c0c0; border:2px outset #fff; box-shadow:2px 2px 0 #000; min-width:300px; min-height:180px; display:none; z-index:10; }
+.win.active { z-index:100; }
+.win-titlebar { background:linear-gradient(to right,#000080,#1084d0); color:#fff; padding:3px 4px; display:flex; align-items:center; justify-content:space-between; cursor:move; height:22px; }
+.win-titlebar-left { display:flex; align-items:center; gap:5px; font-size:11px; font-weight:bold; }
+.win-controls { display:flex; gap:2px; }
+.win-btn { width:16px; height:14px; background:#c0c0c0; border:1px outset #fff; font-size:9px; cursor:pointer; display:flex; align-items:center; justify-content:center; color:#000; font-weight:bold; }
+.win-btn:active { border:1px inset #888; }
+.win-menubar { background:#c0c0c0; border-bottom:1px solid #808080; padding:2px 4px; display:flex; gap:2px; }
+.win-menu-item { padding:2px 8px; font-size:11px; cursor:pointer; }
+.win-menu-item:hover { background:#000080; color:#fff; }
+.win-content { padding:12px; overflow-y:auto; height:calc(100% - 42px); }
+.win-content.nm { height:calc(100% - 62px); }
+.win-resize { position:absolute; bottom:0; right:0; width:12px; height:12px; cursor:se-resize; background:#c0c0c0; border-top:1px solid #808080; border-left:1px solid #808080; }
 
-  /* WINDOWS */
-  .win { position: absolute; background: #c0c0c0; border: 2px outset #fff; box-shadow: 2px 2px 0 #000; min-width: 320px; min-height: 200px; display: none; z-index: 10; }
-  .win.active { z-index: 100; }
-  .win-titlebar { background: linear-gradient(to right, #000080, #1084d0); color: #fff; padding: 3px 4px; display: flex; align-items: center; justify-content: space-between; cursor: move; height: 22px; }
-  .win-titlebar-left { display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: bold; }
-  .win-titlebar-icon { width: 16px; height: 16px; flex-shrink: 0; }
-  .win-controls { display: flex; gap: 2px; }
-  .win-btn { width: 16px; height: 14px; background: #c0c0c0; border: 1px outset #fff; font-size: 9px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #000; font-weight: bold; }
-  .win-btn:active { border: 1px inset #888; }
-  .win-menubar { background: #c0c0c0; border-bottom: 1px solid #808080; padding: 2px 4px; display: flex; gap: 2px; }
-  .win-menu-item { padding: 2px 8px; font-size: 11px; cursor: pointer; }
-  .win-menu-item:hover { background: #000080; color: #fff; }
-  .win-content { padding: 12px; overflow-y: auto; height: calc(100% - 42px); }
-  .win-content.with-menu { height: calc(100% - 62px); }
-  .win-resize { position: absolute; bottom: 0; right: 0; width: 12px; height: 12px; cursor: se-resize; background: #c0c0c0; border-top: 1px solid #808080; border-left: 1px solid #808080; }
+/* TASKBAR */
+#taskbar { position:absolute; bottom:0; left:0; right:0; height:28px; background:#c0c0c0; border-top:2px outset #fff; display:flex; align-items:center; gap:2px; padding:2px 4px; z-index:1000; }
+#start-btn { background:#c0c0c0; border:2px outset #fff; padding:2px 8px; font-size:11px; font-weight:bold; display:flex; align-items:center; gap:4px; cursor:pointer; height:22px; flex-shrink:0; }
+#start-btn.pressed { border:2px inset #888; }
+.tbtn { background:#c0c0c0; border:1px outset #fff; padding:2px 8px; font-size:10px; cursor:pointer; height:20px; max-width:120px; overflow:hidden; white-space:nowrap; }
+.tbtn.active { border:1px inset #888; background:#b0b0b0; }
+#tray { margin-left:auto; border:1px inset #888; padding:2px 8px; display:flex; align-items:center; gap:8px; height:22px; }
 
-  /* TASKBAR */
-  #taskbar { position: absolute; bottom: 0; left: 0; right: 0; height: 28px; background: #c0c0c0; border-top: 2px outset #fff; display: flex; align-items: center; gap: 2px; padding: 2px 4px; z-index: 1000; }
-  #start-btn { background: #c0c0c0; border: 2px outset #fff; padding: 2px 8px; font-size: 11px; font-weight: bold; display: flex; align-items: center; gap: 4px; cursor: pointer; height: 22px; flex-shrink: 0; }
-  #start-btn:active, #start-btn.pressed { border: 2px inset #888; }
-  .taskbar-btn { background: #c0c0c0; border: 1px outset #fff; padding: 2px 8px; font-size: 10px; cursor: pointer; height: 20px; display: flex; align-items: center; gap: 4px; max-width: 120px; overflow: hidden; white-space: nowrap; }
-  .taskbar-btn.active { border: 1px inset #888; background: #b0b0b0; }
-  #tray { margin-left: auto; border: 1px inset #888; padding: 2px 8px; display: flex; align-items: center; gap: 8px; background: #c0c0c0; height: 22px; }
-  #clock { font-size: 11px; }
+/* START MENU */
+#smenu { position:absolute; bottom:28px; left:0; width:200px; background:#c0c0c0; border:2px outset #fff; display:none; z-index:2000; }
+#smenu.open { display:block; }
+.sm-sidebar { position:absolute; left:0; top:0; bottom:0; width:22px; background:#808080; display:flex; align-items:flex-end; justify-content:center; padding-bottom:4px; }
+.sm-sidebar-txt { writing-mode:vertical-rl; transform:rotate(180deg); color:#fff; font-size:11px; font-weight:bold; letter-spacing:1px; }
+.sm-items { margin-left:22px; padding:4px 0; }
+.sm-item { display:flex; align-items:center; gap:8px; padding:4px 12px; font-size:11px; cursor:pointer; }
+.sm-item:hover { background:#000080; color:#fff; }
+.sm-divider { border-top:1px solid #808080; margin:3px 6px; }
 
-  /* START MENU */
-  #start-menu { position: absolute; bottom: 28px; left: 0; width: 200px; background: #c0c0c0; border: 2px outset #fff; display: none; z-index: 2000; }
-  #start-menu.open { display: block; }
-  .start-sidebar { position: absolute; left: 0; top: 0; bottom: 0; width: 22px; background: #808080; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 4px; }
-  .start-sidebar-text { writing-mode: vertical-rl; transform: rotate(180deg); color: #fff; font-size: 11px; font-weight: bold; letter-spacing: 1px; }
-  .start-items { margin-left: 22px; padding: 4px 0; }
-  .start-item { display: flex; align-items: center; gap: 8px; padding: 4px 12px; font-size: 11px; cursor: pointer; }
-  .start-item:hover { background: #000080; color: #fff; }
-  .start-item-icon { font-size: 16px; width: 20px; }
-  .start-divider { border-top: 1px solid #808080; margin: 3px 6px; }
+/* CONTENT */
+.sec-title { font-size:13px; font-weight:bold; color:#000080; margin-bottom:8px; border-bottom:1px solid #808080; padding-bottom:4px; }
+.frow { display:flex; gap:4px; align-items:baseline; margin-bottom:4px; font-size:11px; }
+.flbl { color:#444; min-width:80px; }
+.fval { color:#000; font-weight:bold; }
+.skg { margin-bottom:10px; }
+.skt { font-size:11px; font-weight:bold; background:#000080; color:#fff; padding:2px 6px; margin-bottom:6px; }
+.skr { margin-bottom:5px; font-size:11px; }
+.skb { background:#808080; border:1px inset #888; height:10px; }
+.skf { height:100%; background:#000080; }
+.pcard { border:2px outset #fff; background:#d4d0c8; padding:8px; margin-bottom:8px; }
+.pt { font-weight:bold; font-size:11px; color:#000080; }
+.po { font-size:10px; color:#444; }
+.pd { font-size:10px; margin-top:4px; line-height:1.5; }
+.tag { display:inline-block; background:#000080; color:#fff; font-size:9px; padding:1px 5px; margin-top:4px; margin-right:2px; }
+.crow { display:flex; align-items:center; gap:8px; padding:6px; border:1px outset #fff; margin-bottom:6px; background:#d4d0c8; font-size:11px; }
+.cico { font-size:18px; width:24px; text-align:center; }
+.bbtn { background:#c0c0c0; border:2px outset #fff; padding:3px 12px; font-size:11px; cursor:pointer; }
+.bbtn:active { border:2px inset #888; }
+.inset { border:2px inset #888; background:#fff; padding:8px; margin-bottom:8px; }
+.sep { border:none; border-top:1px solid #808080; border-bottom:1px solid #fff; margin:8px 0; }
+.exh { background:#000080; color:#fff; padding:2px 6px; font-size:11px; font-weight:bold; margin-bottom:4px; margin-top:8px; }
+::-webkit-scrollbar { width:16px; }
+::-webkit-scrollbar-track { background:#d4d0c8; }
+::-webkit-scrollbar-thumb { background:#c0c0c0; border:2px outset #fff; }
 
-  /* CONTENT STYLES */
-  .section-title { font-size: 13px; font-weight: bold; color: #000080; margin-bottom: 8px; border-bottom: 1px solid #808080; padding-bottom: 4px; }
-  .about-text { font-size: 11px; line-height: 1.6; color: #000; }
-  .field-row { display: flex; gap: 4px; align-items: baseline; margin-bottom: 4px; font-size: 11px; }
-  .field-label { color: #444; min-width: 80px; }
-  .field-val { color: #000; font-weight: bold; }
-  .skill-row { margin-bottom: 6px; }
-  .skill-name { font-size: 11px; margin-bottom: 2px; }
-  .skill-bar-bg { background: #808080; border: 1px inset #888; height: 10px; }
-  .skill-bar-fill { height: 100%; background: #000080; }
-  .skill-group { margin-bottom: 10px; }
-  .skill-group-title { font-size: 11px; font-weight: bold; background: #000080; color: #fff; padding: 2px 6px; margin-bottom: 6px; }
-  .project-card { border: 2px outset #fff; background: #d4d0c8; padding: 8px; margin-bottom: 8px; }
-  .proj-title { font-weight: bold; font-size: 11px; color: #000080; }
-  .proj-org { font-size: 10px; color: #444; }
-  .proj-desc { font-size: 10px; margin-top: 4px; line-height: 1.5; }
-  .proj-tag { display: inline-block; background: #000080; color: #fff; font-size: 9px; padding: 1px 5px; margin-top: 4px; margin-right: 2px; }
-  .contact-row { display: flex; align-items: center; gap: 8px; padding: 6px; border: 1px outset #fff; margin-bottom: 6px; background: #d4d0c8; font-size: 11px; }
-  .contact-icon { font-size: 18px; width: 24px; text-align: center; }
-  .bevel-btn { background: #c0c0c0; border: 2px outset #fff; padding: 3px 12px; font-size: 11px; cursor: pointer; font-family: Arial, sans-serif; }
-  .bevel-btn:active { border: 2px inset #888; padding: 4px 11px 2px 13px; }
-  .inset-panel { border: 2px inset #888; background: #fff; padding: 8px; margin-bottom: 8px; }
-  ::-webkit-scrollbar { width: 16px; }
-  ::-webkit-scrollbar-track { background: #d4d0c8; border: 1px inset #888; }
-  ::-webkit-scrollbar-thumb { background: #c0c0c0; border: 2px outset #fff; }
-  .sep { border: none; border-top: 1px solid #808080; border-bottom: 1px solid #fff; margin: 8px 0; }
-  .exp-header { background: #000080; color: #fff; padding: 2px 6px; font-size: 11px; font-weight: bold; margin-bottom: 4px; margin-top: 8px; }
-
-  /* PROFILE PHOTO */
-  .profile-photo { width: 64px; height: 64px; border: 2px inset #888; object-fit: cover; object-position: top center; flex-shrink: 0; background: #d4d0c8; }
+/* PROFILE PHOTO */
+#prof-wrap { width:64px; height:64px; border:2px inset #888; flex-shrink:0; overflow:hidden; background:#d4d0c8; display:flex; align-items:center; justify-content:center; }
+#prof-wrap img { width:100%; height:100%; object-fit:cover; object-position:top center; }
+#prof-init { color:#000080; font-size:20px; font-weight:bold; }
 </style>
 </head>
 <body>
 
-<!-- BOOT SCREEN -->
 <div id="boot">
   <div id="boot-logo">Mario OS 95</div>
   <div id="boot-sub">Learning Designer Edition</div>
@@ -137,205 +121,176 @@
   <div id="boot-copy">Copyright © 2026 Mario Listyo Setiawan. All rights reserved.</div>
 </div>
 
-<!-- DESKTOP -->
 <div id="desktop">
   <div id="wallpaper"></div>
 
   <!-- ICONS -->
-  <div class="desk-icon" style="top:20px;left:16px" ondblclick="openWin('about')" onclick="selectIcon(this)">
+  <div class="desk-icon" style="top:20px;left:16px" ondblclick="openWin('about')" onclick="selIcon(this)">
     <svg class="icon-img" viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" fill="#c0c0c0" stroke="#808080"/><circle cx="16" cy="12" r="6" fill="#000080"/><ellipse cx="16" cy="26" rx="9" ry="5" fill="#000080"/><circle cx="16" cy="12" r="4" fill="#fff"/><circle cx="16" cy="11" r="2" fill="#000080"/></svg>
     <span class="icon-label">About Me.exe</span>
   </div>
-  <div class="desk-icon" style="top:110px;left:16px" ondblclick="openWin('projects')" onclick="selectIcon(this)">
-    <svg class="icon-img" viewBox="0 0 32 32"><rect x="2" y="6" width="28" height="22" fill="#ffff80" stroke="#808080"/><rect x="2" y="4" width="10" height="4" fill="#ffff80" stroke="#808080"/><line x1="6" y1="13" x2="26" y2="13" stroke="#808080" stroke-width="1"/><line x1="6" y1="17" x2="26" y2="17" stroke="#808080" stroke-width="1"/><line x1="6" y1="21" x2="20" y2="21" stroke="#808080" stroke-width="1"/></svg>
+  <div class="desk-icon" style="top:110px;left:16px" ondblclick="openWin('projects')" onclick="selIcon(this)">
+    <svg class="icon-img" viewBox="0 0 32 32"><rect x="2" y="6" width="28" height="22" fill="#ffff80" stroke="#808080"/><rect x="2" y="4" width="10" height="4" fill="#ffff80" stroke="#808080"/><line x1="6" y1="13" x2="26" y2="13" stroke="#808080"/><line x1="6" y1="17" x2="26" y2="17" stroke="#808080"/><line x1="6" y1="21" x2="20" y2="21" stroke="#808080"/></svg>
     <span class="icon-label">Projects</span>
   </div>
-  <div class="desk-icon" style="top:200px;left:16px" ondblclick="openWin('skills')" onclick="selectIcon(this)">
-    <svg class="icon-img" viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" fill="#c0c0c0" stroke="#808080"/><rect x="5" y="20" width="5" height="8" fill="#000080"/><rect x="12" y="14" width="5" height="14" fill="#000080"/><rect x="19" y="8" width="5" height="20" fill="#000080"/><line x1="3" y1="28" x2="29" y2="28" stroke="#000" stroke-width="1"/></svg>
+  <div class="desk-icon" style="top:200px;left:16px" ondblclick="openWin('skills')" onclick="selIcon(this)">
+    <svg class="icon-img" viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" fill="#c0c0c0" stroke="#808080"/><rect x="5" y="20" width="5" height="8" fill="#000080"/><rect x="12" y="14" width="5" height="14" fill="#000080"/><rect x="19" y="8" width="5" height="20" fill="#000080"/><line x1="3" y1="28" x2="29" y2="28" stroke="#000"/></svg>
     <span class="icon-label">Skills.xls</span>
   </div>
-  <div class="desk-icon" style="top:290px;left:16px" ondblclick="openWin('contact')" onclick="selectIcon(this)">
-    <svg class="icon-img" viewBox="0 0 32 32"><rect x="2" y="6" width="28" height="20" fill="#fff" stroke="#808080"/><polyline points="2,6 16,18 30,6" fill="none" stroke="#000080" stroke-width="2"/><line x1="2" y1="26" x2="11" y2="17" stroke="#808080" stroke-width="1"/><line x1="30" y1="26" x2="21" y2="17" stroke="#808080" stroke-width="1"/></svg>
+  <div class="desk-icon" style="top:290px;left:16px" ondblclick="openWin('contact')" onclick="selIcon(this)">
+    <svg class="icon-img" viewBox="0 0 32 32"><rect x="2" y="6" width="28" height="20" fill="#fff" stroke="#808080"/><polyline points="2,6 16,18 30,6" fill="none" stroke="#000080" stroke-width="2"/></svg>
     <span class="icon-label">Contact.txt</span>
   </div>
-  <div class="desk-icon" style="top:380px;left:16px" ondblclick="openWin('readme')" onclick="selectIcon(this)">
-    <svg class="icon-img" viewBox="0 0 32 32"><rect x="5" y="2" width="20" height="26" fill="#fff" stroke="#808080"/><rect x="5" y="2" width="20" height="6" fill="#000080"/><line x1="8" y1="14" x2="24" y2="14" stroke="#808080" stroke-width="1"/><line x1="8" y1="18" x2="24" y2="18" stroke="#808080" stroke-width="1"/><line x1="8" y1="22" x2="18" y2="22" stroke="#808080" stroke-width="1"/></svg>
+  <div class="desk-icon" style="top:380px;left:16px" ondblclick="openWin('readme')" onclick="selIcon(this)">
+    <svg class="icon-img" viewBox="0 0 32 32"><rect x="5" y="2" width="20" height="26" fill="#fff" stroke="#808080"/><rect x="5" y="2" width="20" height="6" fill="#000080"/><line x1="8" y1="14" x2="24" y2="14" stroke="#808080"/><line x1="8" y1="18" x2="24" y2="18" stroke="#808080"/><line x1="8" y1="22" x2="18" y2="22" stroke="#808080"/></svg>
     <span class="icon-label">README.txt</span>
   </div>
 
-  <!-- ABOUT WINDOW -->
-  <div class="win" id="win-about" style="top:60px;left:120px;width:440px;height:380px">
-    <div class="win-titlebar" onmousedown="startDrag(event,'win-about')">
-      <div class="win-titlebar-left">
-        <svg class="win-titlebar-icon" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="#fff" opacity="0.3"/><circle cx="8" cy="6" r="2" fill="#fff"/><ellipse cx="8" cy="12" rx="4" ry="2" fill="#fff"/></svg>
-        About Me — Mario Listyo Setiawan
-      </div>
+  <!-- ABOUT -->
+  <div class="win" id="win-about" style="top:60px;left:120px;width:430px;height:370px">
+    <div class="win-titlebar" onmousedown="drag(event,'win-about')">
+      <div class="win-titlebar-left">👤 About Me — Mario Listyo Setiawan</div>
       <div class="win-controls">
-        <div class="win-btn" onclick="minimizeWin('win-about')">_</div>
-        <div class="win-btn" onclick="maximizeWin('win-about')">□</div>
+        <div class="win-btn" onclick="minWin('win-about')">_</div>
+        <div class="win-btn" onclick="maxWin('win-about')">□</div>
         <div class="win-btn" onclick="closeWin('win-about')">✕</div>
       </div>
     </div>
-    <div class="win-menubar">
-      <span class="win-menu-item">File</span>
-      <span class="win-menu-item">Edit</span>
-      <span class="win-menu-item">View</span>
-    </div>
-    <div class="win-content with-menu">
+    <div class="win-menubar"><span class="win-menu-item">File</span><span class="win-menu-item">Edit</span><span class="win-menu-item">View</span></div>
+    <div class="win-content nm">
       <div style="display:flex;gap:12px;margin-bottom:12px;align-items:flex-start;">
-        <img id="profile-photo" class="profile-photo" alt="Mario Listyo" />
+        <div id="prof-wrap">
+          <img id="prof-img" src="" alt="Mario" onerror="this.style.display='none';document.getElementById('prof-init').style.display='block'"/>
+          <span id="prof-init" style="display:none">ML</span>
+        </div>
         <div>
           <div style="font-size:14px;font-weight:bold;color:#000080;margin-bottom:2px;">Mario Listyo Setiawan</div>
           <div style="font-size:10px;color:#444;margin-bottom:6px;">Learning Designer &amp; Class Facilitator</div>
-          <div class="field-row"><span class="field-label">📍 Location:</span><span class="field-val">Tangerang, Banten, Indonesia</span></div>
-          <div class="field-row"><span class="field-label">🎓 Degree:</span><span class="field-val">B.Ed. Educational Technology</span></div>
-          <div class="field-row"><span class="field-label">🏫 University:</span><span class="field-val">Universitas Negeri Malang</span></div>
+          <div class="frow"><span class="flbl">📍 Location:</span><span class="fval">Tangerang, Banten</span></div>
+          <div class="frow"><span class="flbl">🎓 Degree:</span><span class="fval">B.Ed. Ed. Technology</span></div>
+          <div class="frow"><span class="flbl">🏫 University:</span><span class="fval">Univ. Negeri Malang</span></div>
         </div>
       </div>
       <hr class="sep">
-      <div class="section-title">Summary</div>
-      <div class="inset-panel">
-        <p class="about-text">I help organizations build effective learning experiences — from instructional design and e-learning development to training facilitation and learning administration.</p>
-        <br>
-        <p class="about-text">With a background in Educational Technology and hands-on experience across edtech, government training (BPSDMP Kominfo), and nonprofit settings, I bring end-to-end L&amp;D capability.</p>
+      <div class="sec-title">Summary</div>
+      <div class="inset">
+        <p style="font-size:11px;line-height:1.6;">I help organizations build effective learning experiences — from instructional design and e-learning development to training facilitation and learning administration. Experience across edtech, government training (BPSDMP Kominfo), and nonprofit settings.</p>
       </div>
-      <div class="section-title">Currently Open To</div>
+      <div class="sec-title">Currently Open To</div>
       <div style="display:flex;gap:6px;flex-wrap:wrap;">
-        <span class="proj-tag">Learning &amp; Development</span>
-        <span class="proj-tag">Training &amp; Facilitation</span>
-        <span class="proj-tag">HR Generalist</span>
-        <span class="proj-tag">EdTech</span>
+        <span class="tag">Learning &amp; Development</span>
+        <span class="tag">Training &amp; Facilitation</span>
+        <span class="tag">HR Generalist</span>
+        <span class="tag">EdTech</span>
       </div>
     </div>
-    <div class="win-resize" onmousedown="startResize(event,'win-about')"></div>
+    <div class="win-resize" onmousedown="resize(event,'win-about')"></div>
   </div>
 
-  <!-- PROJECTS WINDOW -->
+  <!-- PROJECTS -->
   <div class="win" id="win-projects" style="top:80px;left:180px;width:440px;height:420px">
-    <div class="win-titlebar" onmousedown="startDrag(event,'win-projects')">
-      <div class="win-titlebar-left">
-        <svg class="win-titlebar-icon" viewBox="0 0 16 16"><rect x="1" y="3" width="14" height="11" fill="#ffff80" stroke="#808080" stroke-width="1"/><rect x="1" y="2" width="5" height="2" fill="#ffff80" stroke="#808080" stroke-width="1"/></svg>
-        My Projects &amp; Experience
-      </div>
+    <div class="win-titlebar" onmousedown="drag(event,'win-projects')">
+      <div class="win-titlebar-left">📁 Projects &amp; Experience</div>
       <div class="win-controls">
-        <div class="win-btn" onclick="minimizeWin('win-projects')">_</div>
-        <div class="win-btn" onclick="maximizeWin('win-projects')">□</div>
+        <div class="win-btn" onclick="minWin('win-projects')">_</div>
+        <div class="win-btn" onclick="maxWin('win-projects')">□</div>
         <div class="win-btn" onclick="closeWin('win-projects')">✕</div>
       </div>
     </div>
-    <div class="win-menubar"><span class="win-menu-item">File</span><span class="win-menu-item">View</span><span class="win-menu-item">Sort</span></div>
-    <div class="win-content with-menu">
-      <div class="exp-header">📂 2026 — Present</div>
-      <div class="project-card">
-        <div class="proj-title">Class Administrator</div>
-        <div class="proj-org">Harisenin.com · Central Jakarta (Apr 2026–Present)</div>
-        <div class="proj-desc">Coordinate and manage class operations for online learning programs. Handle scheduling, learning administration, and participant communication across active cohorts.</div>
-        <span class="proj-tag">LMS</span><span class="proj-tag">Administration</span>
+    <div class="win-menubar"><span class="win-menu-item">File</span><span class="win-menu-item">View</span></div>
+    <div class="win-content nm">
+      <div class="exh">📂 2026 — Present</div>
+      <div class="pcard">
+        <div class="pt">Class Administrator — Harisenin.com</div>
+        <div class="po">Central Jakarta · Apr 2026–Present</div>
+        <div class="pd">Coordinate class operations for online learning programs. Handle scheduling, learning administration, and participant communication across active cohorts.</div>
+        <span class="tag">LMS</span><span class="tag">Administration</span>
       </div>
-      <div class="project-card">
-        <div class="proj-title">Teaching Assistant &amp; Partnerships Coordinator</div>
-        <div class="proj-org">Kanca Bahasa · Central Jakarta (Dec 2025–Present)</div>
-        <div class="proj-desc">Managed tutor schedules, coordinated online class operations, tracked attendance via Excel, handled participant communication via WhatsApp Group, and maintained learning documentation on Google Drive.</div>
-        <span class="proj-tag">Google Workspace</span><span class="proj-tag">Coordination</span>
+      <div class="pcard">
+        <div class="pt">Teaching Assistant &amp; Partnerships Coordinator</div>
+        <div class="po">Kanca Bahasa · Dec 2025–Present</div>
+        <div class="pd">Managed tutor schedules, online class operations, attendance tracking via Excel, WhatsApp communication, and learning documentation on Google Drive.</div>
+        <span class="tag">Google Workspace</span><span class="tag">Coordination</span>
       </div>
-      <div class="exp-header">📂 Jan–Mar 2026</div>
-      <div class="project-card">
-        <div class="proj-title">Learning Designer</div>
-        <div class="proj-org">Enviro.id · Indonesia</div>
-        <div class="proj-desc">Designed instructional content for internal training. Developed e-learning assets using Canva and PowerPoint. Collaborated with SMEs to ensure accuracy and relevance.</div>
-        <span class="proj-tag">ADDIE</span><span class="proj-tag">Canva</span><span class="proj-tag">Instructional Design</span>
+      <div class="exh">📂 Jan–Mar 2026</div>
+      <div class="pcard">
+        <div class="pt">Learning Designer — Enviro.id</div>
+        <div class="po">Indonesia</div>
+        <div class="pd">Designed instructional content for internal training. Developed e-learning assets using Canva and PowerPoint. Collaborated with SMEs for accuracy.</div>
+        <span class="tag">ADDIE</span><span class="tag">Canva</span>
       </div>
-      <div class="exp-header">📂 2022 — BPSDMP Kominfo</div>
-      <div class="project-card">
-        <div class="proj-title">Learning Designer</div>
-        <div class="proj-org">BPSDMP KOMINFO Surabaya · East Java (Aug–Oct 2022)</div>
-        <div class="proj-desc">Developed offline/online learning materials for Microsoft Office and Google Workspace. Delivered face-to-face sessions for SD/SMA/SMK students. Managed 20–25 students/grade, 3 sessions/day. Used Kahoot for assessments.</div>
-        <span class="proj-tag">Kahoot</span><span class="proj-tag">Facilitation</span><span class="proj-tag">Gov Training</span>
+      <div class="exh">📂 Aug–Oct 2022</div>
+      <div class="pcard">
+        <div class="pt">Learning Designer — BPSDMP KOMINFO Surabaya</div>
+        <div class="po">East Java</div>
+        <div class="pd">Developed offline/online materials for MS Office &amp; Google Workspace. Delivered face-to-face sessions for SD/SMA/SMK. 20–25 students/grade, 3 sessions/day. Used Kahoot for assessments.</div>
+        <span class="tag">Kahoot</span><span class="tag">Facilitation</span><span class="tag">Gov Training</span>
       </div>
-      <div class="exp-header">📂 2021–2022 — E-Learning</div>
-      <div class="project-card">
-        <div class="proj-title">E-Learning Developer</div>
-        <div class="proj-org">Educlass · (Aug 2021–Oct 2022)</div>
-        <div class="proj-desc">Built end-to-end learning flows using ADDIE. Developed interactive content on Moodle and Google Classroom. Created pre/post-test assessments and monitored participant progress.</div>
-        <span class="proj-tag">Moodle</span><span class="proj-tag">ADDIE</span><span class="proj-tag">E-learning</span>
+      <div class="exh">📂 2021–2022</div>
+      <div class="pcard">
+        <div class="pt">E-Learning Developer — Educlass</div>
+        <div class="po">Aug 2021–Oct 2022</div>
+        <div class="pd">Built end-to-end learning flows using ADDIE. Developed interactive content on Moodle and Google Classroom. Created pre/post-test assessments.</div>
+        <span class="tag">Moodle</span><span class="tag">ADDIE</span><span class="tag">E-learning</span>
       </div>
     </div>
-    <div class="win-resize" onmousedown="startResize(event,'win-projects')"></div>
+    <div class="win-resize" onmousedown="resize(event,'win-projects')"></div>
   </div>
 
-  <!-- SKILLS WINDOW -->
-  <div class="win" id="win-skills" style="top:100px;left:240px;width:380px;height:380px">
-    <div class="win-titlebar" onmousedown="startDrag(event,'win-skills')">
-      <div class="win-titlebar-left">
-        <svg class="win-titlebar-icon" viewBox="0 0 16 16"><rect x="1" y="1" width="14" height="14" fill="#c0c0c0" stroke="#808080"/><rect x="3" y="10" width="2" height="4" fill="#000080"/><rect x="6" y="7" width="2" height="7" fill="#000080"/><rect x="9" y="4" width="2" height="10" fill="#000080"/><rect x="12" y="1" width="2" height="13" fill="#000080"/></svg>
-        Skills.xls — Competency Matrix
-      </div>
+  <!-- SKILLS -->
+  <div class="win" id="win-skills" style="top:100px;left:240px;width:370px;height:370px">
+    <div class="win-titlebar" onmousedown="drag(event,'win-skills')">
+      <div class="win-titlebar-left">📊 Skills.xls — Competency Matrix</div>
       <div class="win-controls">
-        <div class="win-btn" onclick="minimizeWin('win-skills')">_</div>
-        <div class="win-btn" onclick="maximizeWin('win-skills')">□</div>
+        <div class="win-btn" onclick="minWin('win-skills')">_</div>
+        <div class="win-btn" onclick="maxWin('win-skills')">□</div>
         <div class="win-btn" onclick="closeWin('win-skills')">✕</div>
       </div>
     </div>
     <div class="win-content">
-      <div class="skill-group">
-        <div class="skill-group-title">🎨 Instructional Design</div>
-        <div class="skill-row"><div class="skill-name">ADDIE Framework</div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:92%"></div></div></div>
-        <div class="skill-row"><div class="skill-name">Curriculum Development</div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:88%"></div></div></div>
-        <div class="skill-row"><div class="skill-name">Training Needs Analysis</div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div></div>
-        <div class="skill-row"><div class="skill-name">Educational Materials Dev.</div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div></div>
+      <div class="skg"><div class="skt">🎨 Instructional Design</div>
+        <div class="skr">ADDIE Framework<div class="skb"><div class="skf" style="width:92%"></div></div></div>
+        <div class="skr">Curriculum Development<div class="skb"><div class="skf" style="width:88%"></div></div></div>
+        <div class="skr">Training Needs Analysis<div class="skb"><div class="skf" style="width:85%"></div></div></div>
+        <div class="skr">Educational Materials Dev.<div class="skb"><div class="skf" style="width:90%"></div></div></div>
       </div>
-      <div class="skill-group">
-        <div class="skill-group-title">💻 Tools &amp; Platforms</div>
-        <div class="skill-row"><div class="skill-name">Canva</div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div></div>
-        <div class="skill-row"><div class="skill-name">Moodle LMS</div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div></div>
-        <div class="skill-row"><div class="skill-name">Google Classroom</div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:88%"></div></div></div>
-        <div class="skill-row"><div class="skill-name">Microsoft Excel</div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div></div>
-        <div class="skill-row"><div class="skill-name">Google Workspace</div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:87%"></div></div></div>
+      <div class="skg"><div class="skt">💻 Tools &amp; Platforms</div>
+        <div class="skr">Canva<div class="skb"><div class="skf" style="width:90%"></div></div></div>
+        <div class="skr">Moodle LMS<div class="skb"><div class="skf" style="width:85%"></div></div></div>
+        <div class="skr">Google Classroom<div class="skb"><div class="skf" style="width:88%"></div></div></div>
+        <div class="skr">Microsoft Excel<div class="skb"><div class="skf" style="width:80%"></div></div></div>
+        <div class="skr">Google Workspace<div class="skb"><div class="skf" style="width:87%"></div></div></div>
       </div>
-      <div class="skill-group">
-        <div class="skill-group-title">🧠 Facilitation &amp; People</div>
-        <div class="skill-row"><div class="skill-name">Training Facilitation</div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:88%"></div></div></div>
-        <div class="skill-row"><div class="skill-name">Interpersonal Relationships</div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:92%"></div></div></div>
-        <div class="skill-row"><div class="skill-name">Learning Administration</div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div></div>
+      <div class="skg"><div class="skt">🧠 Facilitation &amp; People</div>
+        <div class="skr">Training Facilitation<div class="skb"><div class="skf" style="width:88%"></div></div></div>
+        <div class="skr">Interpersonal Relationships<div class="skb"><div class="skf" style="width:92%"></div></div></div>
+        <div class="skr">Learning Administration<div class="skb"><div class="skf" style="width:85%"></div></div></div>
       </div>
-      <div class="skill-group">
-        <div class="skill-group-title">🌐 Languages</div>
-        <div class="skill-row"><div class="skill-name">Bahasa Indonesia (Native)</div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:100%"></div></div></div>
-        <div class="skill-row"><div class="skill-name">English (Professional Working)</div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div></div>
+      <div class="skg"><div class="skt">🌐 Languages</div>
+        <div class="skr">Bahasa Indonesia (Native)<div class="skb"><div class="skf" style="width:100%"></div></div></div>
+        <div class="skr">English (Professional Working)<div class="skb"><div class="skf" style="width:75%"></div></div></div>
       </div>
     </div>
-    <div class="win-resize" onmousedown="startResize(event,'win-skills')"></div>
+    <div class="win-resize" onmousedown="resize(event,'win-skills')"></div>
   </div>
 
-  <!-- CONTACT WINDOW -->
-  <div class="win" id="win-contact" style="top:120px;left:300px;width:360px;height:320px">
-    <div class="win-titlebar" onmousedown="startDrag(event,'win-contact')">
-      <div class="win-titlebar-left">
-        <svg class="win-titlebar-icon" viewBox="0 0 16 16"><rect x="1" y="3" width="14" height="10" fill="#fff" stroke="#808080"/><polyline points="1,3 8,9 15,3" fill="none" stroke="#000080" stroke-width="1.5"/></svg>
-        Contact.txt — Get In Touch
-      </div>
+  <!-- CONTACT -->
+  <div class="win" id="win-contact" style="top:120px;left:300px;width:350px;height:310px">
+    <div class="win-titlebar" onmousedown="drag(event,'win-contact')">
+      <div class="win-titlebar-left">✉ Contact.txt</div>
       <div class="win-controls">
-        <div class="win-btn" onclick="minimizeWin('win-contact')">_</div>
-        <div class="win-btn" onclick="maximizeWin('win-contact')">□</div>
+        <div class="win-btn" onclick="minWin('win-contact')">_</div>
+        <div class="win-btn" onclick="maxWin('win-contact')">□</div>
         <div class="win-btn" onclick="closeWin('win-contact')">✕</div>
       </div>
     </div>
     <div class="win-content">
-      <div class="section-title">📬 Contact Information</div>
-      <div class="contact-row">
-        <span class="contact-icon">📧</span>
-        <div><div style="font-weight:bold">Email</div><div style="color:#000080">jobs@mariolistyo.com</div></div>
-      </div>
-      <div class="contact-row">
-        <span class="contact-icon">💼</span>
-        <div><div style="font-weight:bold">LinkedIn</div><div style="color:#000080">linkedin.com/in/mariolistyo</div></div>
-      </div>
-      <div class="contact-row">
-        <span class="contact-icon">📍</span>
-        <div><div style="font-weight:bold">Location</div><div>Tangerang, Banten, Indonesia</div></div>
-      </div>
+      <div class="sec-title">📬 Contact Information</div>
+      <div class="crow"><span class="cico">📧</span><div><b>Email</b><br><span style="color:#000080">jobs@mariolistyo.com</span></div></div>
+      <div class="crow"><span class="cico">💼</span><div><b>LinkedIn</b><br><span style="color:#000080">linkedin.com/in/mariolistyo</span></div></div>
+      <div class="crow"><span class="cico">📍</span><div><b>Location</b><br>Tangerang, Banten, Indonesia</div></div>
       <hr class="sep">
-      <div class="section-title">🎓 Certifications</div>
+      <div class="sec-title">🎓 Certifications</div>
       <div style="font-size:10px;line-height:1.8;">
         ✔ Basic Microsoft Excel Fundamentals — IODA Academy<br>
         ✔ Training Need Analysis for L&amp;D<br>
@@ -343,94 +298,150 @@
         ✔ Virtual Assistant Bootcamp
       </div>
       <hr class="sep">
-      <div style="display:flex;gap:8px;margin-top:8px;">
-        <button class="bevel-btn" onclick="alert('Opening email client...\n\njobs@mariolistyo.com')">✉ Send Email</button>
-        <button class="bevel-btn" onclick="window.open('https://www.linkedin.com/in/mariolistyo','_blank')">💼 LinkedIn</button>
+      <div style="display:flex;gap:8px;">
+        <button class="bbtn" onclick="alert('Email:\njobs@mariolistyo.com')">✉ Email</button>
+        <button class="bbtn" onclick="window.open('https://linkedin.com/in/mariolistyo','_blank')">💼 LinkedIn</button>
       </div>
     </div>
-    <div class="win-resize" onmousedown="startResize(event,'win-contact')"></div>
+    <div class="win-resize" onmousedown="resize(event,'win-contact')"></div>
   </div>
 
-  <!-- README WINDOW -->
-  <div class="win" id="win-readme" style="top:140px;left:200px;width:360px;height:220px">
-    <div class="win-titlebar" onmousedown="startDrag(event,'win-readme')">
-      <div class="win-titlebar-left">README.txt — Notepad</div>
+  <!-- README -->
+  <div class="win" id="win-readme" style="top:140px;left:200px;width:340px;height:210px">
+    <div class="win-titlebar" onmousedown="drag(event,'win-readme')">
+      <div class="win-titlebar-left">📄 README.txt</div>
       <div class="win-controls">
-        <div class="win-btn" onclick="minimizeWin('win-readme')">_</div>
-        <div class="win-btn" onclick="maximizeWin('win-readme')">□</div>
+        <div class="win-btn" onclick="minWin('win-readme')">_</div>
+        <div class="win-btn" onclick="maxWin('win-readme')">□</div>
         <div class="win-btn" onclick="closeWin('win-readme')">✕</div>
       </div>
     </div>
     <div class="win-content" style="font-family:monospace;font-size:11px;line-height:1.7;background:#fff;border:2px inset #888;">
       ====================================<br>
       &nbsp;MARIO LISTYO — PORTFOLIO v1.0<br>
-      ====================================<br>
-      <br>
-      Welcome! Double-click any desktop<br>
-      icon to open a window.<br>
-      <br>
-      → About Me.exe — Bio &amp; photo<br>
-      → Projects — Work experience<br>
-      → Skills.xls — Competency bars<br>
-      → Contact.txt — Get in touch<br>
-      <br>
-      Email: jobs@mariolistyo.com<br>
-      [Last modified: May 2026]<br>
+      ====================================<br><br>
+      Double-click icons to open windows.<br>
+      Drag title bars to move windows.<br>
+      Drag bottom-right corner to resize.<br><br>
+      📧 jobs@mariolistyo.com<br>
+      💼 linkedin.com/in/mariolistyo<br>
+      [May 2026]
     </div>
-    <div class="win-resize" onmousedown="startResize(event,'win-readme')"></div>
+    <div class="win-resize" onmousedown="resize(event,'win-readme')"></div>
   </div>
 
   <!-- TASKBAR -->
   <div id="taskbar">
-    <div id="start-btn" onclick="toggleStartMenu()">
-      <span>⊞</span>
-      <strong>Start</strong>
-    </div>
-    <div id="taskbar-items" style="display:flex;gap:2px;flex:1;overflow:hidden;"></div>
-    <div id="tray">
-      <span>🔊</span>
-      <span id="clock">12:00 PM</span>
-    </div>
+    <div id="start-btn" onclick="toggleSMenu()"><span>⊞</span><strong>Start</strong></div>
+    <div id="tbar" style="display:flex;gap:2px;flex:1;overflow:hidden;"></div>
+    <div id="tray"><span>🔊</span><span id="clock">--:--</span></div>
   </div>
 
   <!-- START MENU -->
-  <div id="start-menu">
-    <div class="start-sidebar"><span class="start-sidebar-text">Mario OS 95</span></div>
-    <div class="start-items">
-      <div class="start-item" onclick="openWin('about');closeStartMenu()"><span class="start-item-icon">👤</span> About Me</div>
-      <div class="start-item" onclick="openWin('projects');closeStartMenu()"><span class="start-item-icon">📁</span> Projects</div>
-      <div class="start-item" onclick="openWin('skills');closeStartMenu()"><span class="start-item-icon">📊</span> Skills</div>
-      <div class="start-item" onclick="openWin('contact');closeStartMenu()"><span class="start-item-icon">✉</span> Contact</div>
-      <div class="start-item" onclick="openWin('readme');closeStartMenu()"><span class="start-item-icon">📄</span> README</div>
-      <div class="start-divider"></div>
-      <div class="start-item" onclick="alert('Mario OS 95\nVersion 1.0\n\nRunning on Portfolio Engine')"><span class="start-item-icon">ℹ</span> About Mario OS</div>
-      <div class="start-divider"></div>
-      <div class="start-item" onclick="shutDown()"><span class="start-item-icon">🔴</span> Shut Down...</div>
+  <div id="smenu">
+    <div class="sm-sidebar"><span class="sm-sidebar-txt">Mario OS 95</span></div>
+    <div class="sm-items">
+      <div class="sm-item" onclick="openWin('about');closeSMenu()">👤 About Me</div>
+      <div class="sm-item" onclick="openWin('projects');closeSMenu()">📁 Projects</div>
+      <div class="sm-item" onclick="openWin('skills');closeSMenu()">📊 Skills</div>
+      <div class="sm-item" onclick="openWin('contact');closeSMenu()">✉ Contact</div>
+      <div class="sm-item" onclick="openWin('readme');closeSMenu()">📄 README</div>
+      <div class="sm-divider"></div>
+      <div class="sm-item" onclick="shutDown()">🔴 Shut Down...</div>
     </div>
   </div>
 </div>
 
 <script>
-// Embed photo from Google Drive
-const photoB64 = "iVBORw0KGgoAAAANSUhEUgAAAkEAAAGwCAYAAACuIrGMAAAQAElEQVR4Aez9abBl2XXeia21h3POHd6Uc2ZlFaoKCRRQAKpIJEAAnJAgxUkkZFFkkaKk1hQ0LXVLcnR02/1B3XIp3HaEFf7aH/RNjkaEHIRCYYciZEdHS6xQRwdtsysQIo2yKULEwEIVasrh5Xvv3nfvPef0/7dfnkISAiQQY1W+c+Ou3NPaa6+9zsn3/7+1z70v2PgaIzBGYIzAGIExAmMExgicwgiMJOgUXvRxy2MExgiMETjdERh3P0bgJAIjCTqJw/jvGIExAmMExgiMERgjcMoiMJKgU3bBx+2OETjNARj3PkZgjMAYgfsjMJKg+6Mx1scIjBEYIzBGYIzAGIFTE4GRBJ2aS32aNzrufYzAGIExAmMExgj8uxEYSdC/G5OxZ4zAGIExAmMExgiMETgFEXigSdApuH7jFscIjBEYIzBGYIzAGIFvMQIjCfoWAzdOGyMwRmCMwBiBMQJvwQiMLv0JIjCSoD9BsEbVMQJjBMYIjBEYIzBG4MGJwEiCHpxrOe5kjMAYgdMcgXHvYwTGCPyJIzCSoD9xyMYJYwTGCIwRGCMwRmCMwIMQgZEEPQhXcdzDaY7AuPcxAmMExgiMEfgWIzCSoG8xcOO0MQJjBMYIjBEYIzBG4O0dgZEEvV2v3+j3GIExAmMExgiMERgj8G1FYCRB31b4xsljBMYIjBEYIzBGYIzA9yoC3+l1RhL0nY7oaG+MwBiBMQJjBMYIjBF4W0RgJEFvi8s0OjlGYIzAGIETHIFx72MEvjsRGEnQdyeuo9UxAmMExgiMERgjMEbgLR6BkQS9xS/Q6N4YgdMcgXHvYwTGCIwR+G5GYCRB383ojrbHCIwRGCMwRmCMwBiBt2wERhL0lr00p9mxce+nPQJ93/v9MaD97LPPBuT+/rE+RmCMwBiBbycCIwn6dqI3zh0jMEbgOxKBZ555Ju4jOJCf8KEPfShduXJ9euPGjfTkk09WTz/99PTTn/707j/5J//k/Lvfff3ctWsf2X7iiR/Z0tj8537u52rmf0ccGY2MERgjcKoi8JYiQacq8uNmxwiMETCRmAqy89nPfjZ+6lOfylevfqy5ePGpyZ07dyY7O0c7L7744t5yuZwcHR3F4+PjDS/3rsp5M2vbjbdt67/3e7fDZz5zkK5fv57vEakxsmMExgiMEfimIjCSoG8qTKPSGIExAt9qBIajLEiKbPAzJ1I/c+ba9quvtvXly7aeTCa9xuzixdXm7NnNWmRntVgsbqlczw/nKjaro6OdTVVVy7pu77Tt3XVKd3Jd113TvNZV1Rf7ra2tYgM7o4wReBtFYHT1+xgBfiB9H5cflx4jMEbgAY1AOdYyu54ffvjhhizP5z//+cnVq1frK1eu1J///J1JjHe6+fx4/covf+7v3p+3b+z+3/5q3v+OGzFiMwMpd18/LrWvNYgFSk5P7TAbO2vc59mIVvLCUPbKWFIKUAAA";
+// ---- BOOT ----
+const msgs = ["Initializing BIOS...","Checking memory... 640KB OK","Loading Mario OS 95...","Starting learning modules...","Configuring L&D environment...","Loading ADDIE framework...","Mounting Google Workspace...","Starting Windows..."];
+let step = 0;
+const bar = document.getElementById('boot-bar');
+const status = document.getElementById('boot-status');
 
-// Set photo with cross-fade — use base64 directly
-document.addEventListener('DOMContentLoaded', () => {
-  const img = document.getElementById('profile-photo');
-  img.src = 'data:image/png;base64,' + photoB64;
-  img.onerror = () => {
-    // Fallback initials if image fails
-    img.style.display = 'none';
-    const fb = document.createElement('div');
-    fb.style.cssText = 'width:64px;height:64px;border:2px inset #888;background:#000080;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;font-weight:bold;flex-shrink:0;';
-    fb.textContent = 'ML';
-    img.parentNode.insertBefore(fb, img);
-  };
-});
+function bootTick() {
+  if (step >= msgs.length) {
+    setTimeout(() => {
+      document.getElementById('boot').style.display = 'none';
+      document.getElementById('desktop').classList.add('show');
+      openWin('readme');
+      loadPhoto();
+    }, 400);
+    return;
+  }
+  bar.style.width = Math.round(step/msgs.length*100) + '%';
+  status.textContent = msgs[step++];
+  setTimeout(bootTick, 300 + Math.random()*250);
+}
+setTimeout(bootTick, 500);
 
-// Load full photo from Drive API
-(async () => {
-  try {
-    const img = document.getElementById('profile-photo');
-    // Use the full base64 string from Drive
-    const fullBase64 = `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
+// ---- CLOCK ----
+function tick() {
+  const n = new Date(), h = n.getHours(), m = n.getMinutes();
+  document.getElementById('clock').textContent = (h%12||12)+':'+(m<10?'0':'')+m+(h>=12?' PM':' AM');
+}
+tick(); setInterval(tick,1000);
+
+// ---- PHOTO ----
+function loadPhoto() {
+  const img = document.getElementById('prof-img');
+  img.src = 'https://drive.google.com/uc?export=view&id=1VFA0uXKU_iQwcHcLEW0BjyhFsIlaisBp';
+  img.onload = () => { img.style.display='block'; document.getElementById('prof-init').style.display='none'; };
+  img.onerror = () => { img.style.display='none'; document.getElementById('prof-init').style.display='block'; };
+}
+
+// ---- WINDOW MANAGEMENT ----
+const wmap = {about:'win-about',projects:'win-projects',skills:'win-skills',contact:'win-contact',readme:'win-readme'};
+const wtitles = {'win-about':'About Me','win-projects':'Projects','win-skills':'Skills','win-contact':'Contact','win-readme':'README'};
+const minimized = {}; const maxed = {}; let topZ = 10;
+
+function openWin(n) {
+  const id = wmap[n], el = document.getElementById(id);
+  el.style.display = 'block'; minimized[id] = false; front(id); updateTbar();
+}
+function closeWin(id) { document.getElementById(id).style.display='none'; minimized[id]=false; updateTbar(); }
+function minWin(id) { minimized[id]=true; document.getElementById(id).style.display='none'; updateTbar(); }
+function maxWin(id) {
+  const el = document.getElementById(id);
+  if (!maxed[id]) { maxed[id]={t:el.style.top,l:el.style.left,w:el.style.width,h:el.style.height}; el.style.cssText+=';top:0;left:0;width:100vw;height:calc(100vh - 28px)'; }
+  else { Object.assign(el.style,{top:maxed[id].t,left:maxed[id].l,width:maxed[id].w,height:maxed[id].h}); delete maxed[id]; }
+}
+function front(id) { topZ++; document.getElementById(id).style.zIndex=topZ; document.querySelectorAll('.win').forEach(w=>w.classList.remove('active')); document.getElementById(id).classList.add('active'); }
+
+function updateTbar() {
+  const c = document.getElementById('tbar'); c.innerHTML='';
+  Object.keys(wmap).forEach(n=>{
+    const id = wmap[n], el = document.getElementById(id);
+    if (el.style.display!=='none'||minimized[id]) {
+      const b = document.createElement('div'); b.className='tbtn'+(el.style.display!=='none'?' active':''); b.textContent=wtitles[id];
+      b.onclick=()=>{ if(minimized[id]){minimized[id]=false;el.style.display='block';front(id);}else if(el.classList.contains('active')){minWin(id);}else{front(id);} updateTbar(); };
+      c.appendChild(b);
+    }
+  });
+}
+
+// ---- DRAG ----
+let dragging=null, ox=0, oy=0;
+function drag(e, id) { front(id); updateTbar(); const r=document.getElementById(id).getBoundingClientRect(); ox=e.clientX-r.left; oy=e.clientY-r.top; dragging=id; e.preventDefault(); }
+document.addEventListener('mousemove', e=>{ if(!dragging)return; const el=document.getElementById(dragging); el.style.left=(e.clientX-ox)+'px'; el.style.top=Math.max(0,e.clientY-oy)+'px'; });
+document.addEventListener('mouseup', ()=>{ dragging=null; resizing=null; });
+
+// ---- RESIZE ----
+let resizing=null, rx=0, ry=0, rw=0, rh=0;
+function resize(e,id){ resizing=id; const el=document.getElementById(id); rx=e.clientX; ry=e.clientY; rw=el.offsetWidth; rh=el.offsetHeight; e.preventDefault(); e.stopPropagation(); }
+document.addEventListener('mousemove', e=>{ if(!resizing)return; const el=document.getElementById(resizing); el.style.width=Math.max(260,rw+e.clientX-rx)+'px'; el.style.height=Math.max(160,rh+e.clientY-ry)+'px'; });
+
+// ---- START MENU ----
+function toggleSMenu(){ const m=document.getElementById('smenu'),b=document.getElementById('start-btn'); m.classList.toggle('open'); b.classList.toggle('pressed'); }
+function closeSMenu(){ document.getElementById('smenu').classList.remove('open'); document.getElementById('start-btn').classList.remove('pressed'); }
+document.addEventListener('click',e=>{ if(!e.target.closest('#smenu')&&!e.target.closest('#start-btn'))closeSMenu(); });
+
+// ---- ICON SELECT ----
+function selIcon(el){ document.querySelectorAll('.desk-icon').forEach(i=>i.classList.remove('selected')); el.classList.add('selected'); }
+document.addEventListener('click',e=>{ if(!e.target.closest('.desk-icon'))document.querySelectorAll('.desk-icon').forEach(i=>i.classList.remove('selected')); });
+
+// ---- SHUTDOWN ----
+function shutDown(){ if(confirm('Shut down Mario OS 95?')){ document.getElementById('desktop').style.display='none'; document.body.style.background='#000'; document.body.innerHTML='<div style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:Arial;font-size:16px;">It is now safe to turn off your computer.</div>'; } }
+</script>
+</body>
+</html>
