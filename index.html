@@ -3,417 +3,535 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mario Listyo Setiawan</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Mario Listyo Setiawan – HR & L&D Specialist</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box;}
 :root{
-  --bg:#0a0a0a;
-  --surface:#111111;
-  --border:#1e1e1e;
-  --text:#f0f0f0;
-  --muted:#666;
-  --accent:#c8ff00;
-  --accent2:#a8d900;
+  --navy:#1a56a0;
+  --navy-dark:#0e3a72;
+  --navy-light:#e8f0fb;
+  --accent:#f97316;
+  --accent-light:#fff4ed;
+  --dark:#0f172a;
+  --gray:#64748b;
+  --light:#f8fafc;
+  --white:#ffffff;
+  --border:#e2e8f0;
 }
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.7;overflow-x:hidden}
+html{scroll-behavior:smooth;}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:var(--dark);background:var(--white);line-height:1.6;}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,10,0);backdrop-filter:blur(0px);transition:all .4s}
-nav.scrolled{background:rgba(10,10,10,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-.nav-logo{font-size:13px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
-.nav-links{display:flex;gap:32px}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;letter-spacing:.5px;transition:color .2s}
-.nav-links a:hover{color:var(--text)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 5%;}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px;}
+.nav-logo{font-weight:700;font-size:1rem;color:var(--navy);letter-spacing:0.3px;}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{text-decoration:none;font-size:0.875rem;color:var(--gray);font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:var(--navy);}
+.nav-cta{background:var(--navy);color:#fff;padding:8px 18px;border-radius:20px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:background .2s;}
+.nav-cta:hover{background:var(--navy-dark);}
 
 /* HERO */
-.hero{height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 40px 80px;position:relative;overflow:hidden}
-.hero-bg{position:absolute;inset:0;overflow:hidden;z-index:0}
-.hero-geo{position:absolute;border-radius:50%;opacity:.04}
-.hero-geo.g1{width:600px;height:600px;border:1px solid var(--accent);top:-100px;right:-100px;animation:rotateSlow 40s linear infinite}
-.hero-geo.g2{width:300px;height:300px;border:1px solid var(--accent);bottom:100px;left:100px;animation:rotateSlow 28s linear infinite reverse}
-.hero-geo.g3{width:900px;height:900px;border:1px solid white;top:-200px;right:-300px;animation:rotateSlow 60s linear infinite}
-@keyframes rotateSlow{to{transform:rotate(360deg)}}
-.hero-content{position:relative;z-index:1;max-width:900px}
-.hero-label{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:24px;opacity:0;animation:fadeUp .6s .2s forwards}
-.hero-name{font-size:clamp(48px,8vw,96px);font-weight:300;line-height:1.05;margin-bottom:24px;overflow:hidden}
-.hero-name span{display:block;opacity:0;animation:fadeUp .7s forwards}
-.hero-name span:nth-child(2){animation-delay:.15s}
-.hero-tagline{font-size:16px;color:var(--muted);max-width:420px;opacity:0;animation:fadeUp .6s .4s forwards}
-.hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:1;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeIn 1s 1.2s forwards}
-.hero-scroll span{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
-.scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--border),var(--muted));animation:scrollPulse 2s ease-in-out infinite}
-@keyframes scrollPulse{0%,100%{opacity:.3}50%{opacity:1}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.hero{min-height:100vh;display:flex;align-items:center;padding:80px 5% 60px;background:linear-gradient(135deg,#f8fafc 60%,#e8f0fb 100%);}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;background:var(--accent-light);color:var(--accent);font-size:0.8rem;font-weight:600;padding:5px 12px;border-radius:20px;margin-bottom:20px;}
+.hero h1{font-size:3rem;font-weight:800;line-height:1.15;color:var(--dark);margin-bottom:16px;}
+.hero h1 span{color:var(--navy);}
+.hero p{color:var(--gray);font-size:1.05rem;margin-bottom:32px;max-width:480px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{background:var(--navy);color:#fff;padding:12px 26px;border-radius:30px;font-weight:600;text-decoration:none;font-size:0.95rem;transition:background .2s,transform .15s;}
+.btn-primary:hover{background:var(--navy-dark);transform:translateY(-1px);}
+.btn-outline{background:#fff;color:var(--navy);border:1.5px solid var(--navy);padding:12px 26px;border-radius:30px;font-weight:600;text-decoration:none;font-size:0.95rem;transition:all .2s;}
+.btn-outline:hover{background:var(--navy-light);}
+.hero-visual{display:flex;justify-content:center;align-items:center;}
+.hero-card{background:#fff;border-radius:20px;padding:32px;box-shadow:0 20px 60px rgba(26,86,160,0.12);max-width:340px;width:100%;}
+.hero-avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--navy),#4f8cd4);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.6rem;font-weight:800;margin:0 auto 16px;}
+.hero-card h3{text-align:center;font-size:1.1rem;font-weight:700;margin-bottom:4px;}
+.hero-card p{text-align:center;color:var(--gray);font-size:0.85rem;margin-bottom:20px;}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;}
+.stat-box{background:var(--light);border-radius:12px;padding:12px;text-align:center;}
+.stat-box .num{font-size:1.5rem;font-weight:800;color:var(--navy);}
+.stat-box .lbl{font-size:0.72rem;color:var(--gray);margin-top:2px;}
+.hero-tag-badge{display:flex;align-items:center;gap:8px;background:var(--navy-light);border-radius:10px;padding:10px 14px;margin-bottom:12px;}
+.hero-tag-badge .dot{width:8px;height:8px;border-radius:50%;background:#22c55e;flex-shrink:0;}
+.hero-tag-badge span{font-size:0.82rem;color:var(--navy);font-weight:600;}
 
 /* SECTIONS */
-section{padding:120px 40px}
-.section-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
-.section-title{font-size:clamp(28px,4vw,48px);font-weight:300;margin-bottom:60px}
+section{padding:80px 5%;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.section-label{font-size:0.8rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;}
+.section-title{font-size:2rem;font-weight:800;color:var(--dark);margin-bottom:12px;}
+.section-sub{color:var(--gray);font-size:1rem;max-width:520px;margin-bottom:48px;}
+.section-alt{background:var(--light);}
 
-/* ABOUT */
-.about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start}
-.about-photo-wrap{position:relative}
-.about-photo{width:100%;aspect-ratio:3/4;background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:transform .4s}
-.about-photo:hover{transform:scale(1.02)}
-.photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;letter-spacing:1px}
-.photo-placeholder svg{width:48px;height:48px;stroke:var(--border)}
-.about-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,255,0,.08);border:1px solid rgba(200,255,0,.2);border-radius:100px;padding:6px 14px;font-size:12px;color:var(--accent);margin-bottom:24px}
-.about-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.about-bio{color:var(--muted);margin-bottom:32px;font-size:15px;line-height:1.8}
-.about-bio strong{color:var(--text);font-weight:400}
-.about-meta{display:flex;flex-direction:column;gap:12px}
-.meta-item{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--muted)}
-.meta-item svg{width:16px;height:16px;stroke:var(--accent);flex-shrink:0}
+/* WHAT I DO */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.svc-card{background:#fff;border-radius:16px;padding:28px 24px;border:1px solid var(--border);transition:border-color .2s,transform .2s;cursor:default;}
+.svc-card:hover{border-color:var(--navy);transform:translateY(-4px);box-shadow:0 8px 30px rgba(26,86,160,0.1);}
+.svc-icon{width:52px;height:52px;border-radius:14px;background:var(--navy-light);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+.svc-icon svg{width:26px;height:26px;stroke:var(--navy);}
+.svc-card h3{font-size:1rem;font-weight:700;margin-bottom:10px;}
+.svc-card p{font-size:0.875rem;color:var(--gray);line-height:1.6;}
 
-/* WORK */
-.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-.project-card{position:relative;background:var(--surface);aspect-ratio:4/3;overflow:hidden;cursor:pointer}
-.project-thumb{width:100%;height:100%;background:var(--border);display:flex;align-items:center;justify-content:center;transition:transform .5s cubic-bezier(.25,.46,.45,.94)}
-.project-card:hover .project-thumb{transform:scale(1.05)}
-.project-thumb-inner{display:flex;flex-direction:column;align-items:center;gap:16px;color:var(--border)}
-.project-thumb svg{width:32px;height:32px;stroke:currentColor}
-.project-thumb span{font-size:11px;letter-spacing:2px;text-transform:uppercase}
-.project-overlay{position:absolute;inset:0;background:rgba(10,10,10,.85);display:flex;flex-direction:column;justify-content:flex-end;padding:28px;opacity:0;transition:opacity .3s;transform:translateY(0)}
-.project-card:hover .project-overlay{opacity:1}
-.project-tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-.project-name{font-size:20px;font-weight:400;margin-bottom:16px}
-.view-link{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--text);border-bottom:1px solid var(--muted);padding-bottom:2px;text-decoration:none}
-.project-num{position:absolute;top:20px;right:20px;font-size:11px;color:var(--border);font-family:monospace}
+/* EXPERIENCE */
+.exp-timeline{position:relative;padding-left:24px;}
+.exp-timeline::before{content:'';position:absolute;left:0;top:8px;bottom:0;width:2px;background:var(--navy-light);}
+.exp-item{position:relative;margin-bottom:40px;}
+.exp-dot{position:absolute;left:-31px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--navy);border:3px solid #fff;box-shadow:0 0 0 2px var(--navy);}
+.exp-meta{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+.exp-date-badge{font-size:0.75rem;background:var(--navy-light);color:var(--navy);padding:3px 10px;border-radius:20px;font-weight:600;}
+.exp-type-badge{font-size:0.72rem;background:var(--accent-light);color:var(--accent);padding:3px 10px;border-radius:20px;font-weight:600;}
+.exp-role{font-size:1rem;font-weight:700;color:var(--dark);}
+.exp-company{font-size:0.875rem;color:var(--navy);font-weight:600;margin-bottom:10px;}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.exp-bullets li{font-size:0.875rem;color:var(--gray);padding-left:14px;position:relative;}
+.exp-bullets li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:0.8rem;}
 
 /* SKILLS */
-.skills-container{max-width:800px}
-.skill-group{margin-bottom:48px}
-.skill-group-name{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
-.skill-tags{display:flex;flex-wrap:wrap;gap:10px}
-.skill-tag{padding:8px 18px;border:1px solid var(--border);border-radius:100px;font-size:13px;color:var(--muted);transition:all .2s}
-.skill-tag:hover{border-color:var(--accent);color:var(--accent);background:rgba(200,255,0,.04)}
+.skills-wrap{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+.skill-group{background:#fff;border-radius:16px;padding:24px;border:1px solid var(--border);}
+.skill-group h4{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.skill-tags{display:flex;flex-wrap:wrap;gap:8px;}
+.skill-tag{font-size:0.8rem;padding:5px 13px;border-radius:20px;font-weight:500;}
+.tag-blue{background:var(--navy-light);color:var(--navy);}
+.tag-orange{background:var(--accent-light);color:#c2410c;}
+.tag-gray{background:var(--light);color:var(--dark);border:1px solid var(--border);}
+
+/* CERTIFICATIONS */
+.certs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+.cert-card{background:#fff;border-radius:14px;padding:20px 22px;border:1px solid var(--border);display:flex;gap:16px;align-items:flex-start;}
+.cert-icon{width:42px;height:42px;border-radius:10px;background:var(--navy-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.cert-icon svg{width:22px;height:22px;stroke:var(--navy);}
+.cert-name{font-size:0.9rem;font-weight:700;margin-bottom:4px;}
+.cert-org{font-size:0.8rem;color:var(--gray);}
+.cert-date{font-size:0.75rem;color:var(--accent);font-weight:600;margin-top:4px;}
+
+/* EDUCATION */
+.edu-card{background:#fff;border-radius:16px;padding:28px 32px;border:1px solid var(--border);display:flex;align-items:center;gap:28px;}
+.edu-logo{width:64px;height:64px;border-radius:16px;background:linear-gradient(135deg,var(--navy),#4f8cd4);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.2rem;flex-shrink:0;}
+.edu-info h3{font-size:1.1rem;font-weight:700;margin-bottom:4px;}
+.edu-info p{color:var(--gray);font-size:0.9rem;}
+.edu-info .gpa{display:inline-flex;align-items:center;gap:6px;margin-top:8px;background:var(--navy-light);color:var(--navy);padding:4px 12px;border-radius:20px;font-size:0.8rem;font-weight:700;}
+.edu-date{margin-left:auto;font-size:0.85rem;color:var(--gray);white-space:nowrap;}
 
 /* CONTACT */
-.contact-inner{max-width:640px}
-.contact-big{font-size:clamp(36px,6vw,80px);font-weight:300;line-height:1.1;margin-bottom:40px}
-.contact-big em{font-style:normal;color:var(--accent)}
-.contact-links{display:flex;flex-direction:column;gap:0}
-.contact-link{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);transition:all .2s;group:true}
-.contact-link:first-child{border-top:1px solid var(--border)}
-.contact-link:hover{padding-left:8px}
-.contact-link-label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
-.contact-link-val{font-size:17px}
-.contact-arrow{color:var(--muted);transition:transform .2s}
-.contact-link:hover .contact-arrow{transform:translate(4px,-4px);color:var(--accent)}
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.contact-info h2{font-size:2rem;font-weight:800;margin-bottom:16px;}
+.contact-info p{color:var(--gray);margin-bottom:28px;}
+.contact-links{display:flex;flex-direction:column;gap:14px;}
+.contact-link{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--dark);font-size:0.95rem;font-weight:500;transition:color .2s;}
+.contact-link:hover{color:var(--navy);}
+.contact-link .icon{width:40px;height:40px;border-radius:10px;background:var(--light);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.contact-link .icon svg{width:20px;height:20px;stroke:var(--navy);}
+.contact-visual{background:var(--navy);border-radius:20px;padding:36px;color:#fff;}
+.contact-visual h3{font-size:1.2rem;font-weight:700;margin-bottom:8px;}
+.contact-visual p{font-size:0.9rem;opacity:0.75;margin-bottom:24px;}
+.avail-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.avail-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;}
+.avail-text{font-size:0.875rem;opacity:0.9;}
+.open-to{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.open-badge{background:rgba(255,255,255,0.15);font-size:0.78rem;padding:5px 13px;border-radius:20px;}
 
 /* FOOTER */
-footer{padding:40px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
-.footer-copy{font-size:12px;color:var(--muted)}
-.footer-credit{font-size:12px;color:var(--muted)}
-.footer-credit span{color:var(--text)}
+footer{background:var(--dark);color:#94a3b8;text-align:center;padding:28px 5%;font-size:0.85rem;}
+footer span{color:#fff;font-weight:600;}
 
-/* SCROLL REVEAL */
-.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease, transform .7s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
-
-/* PROJECT MODAL */
-.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:200;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
-.modal-bg.open{opacity:1;pointer-events:all}
-.modal{background:var(--surface);border:1px solid var(--border);border-radius:4px;max-width:700px;width:90%;max-height:85vh;overflow-y:auto;padding:48px}
-.modal-close{position:absolute;top:24px;right:24px;background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;width:36px;height:36px;border-radius:50%;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all .2s}
-.modal-close:hover{border-color:var(--text);color:var(--text)}
-.modal-tag{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
-.modal-title{font-size:32px;font-weight:300;margin-bottom:32px}
-.modal-section{margin-bottom:24px}
-.modal-section h4{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-.modal-section p{color:#999;line-height:1.7}
-.modal-nav{display:flex;gap:12px;margin-top:40px;padding-top:32px;border-top:1px solid var(--border)}
-.modal-nav-btn{flex:1;padding:14px;border:1px solid var(--border);background:none;color:var(--muted);cursor:pointer;font-family:inherit;font-size:12px;letter-spacing:1px;transition:all .2s}
-.modal-nav-btn:hover{border-color:var(--accent);color:var(--accent)}
+/* SCROLL FADE */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;}
+.fade-in.visible{opacity:1;transform:none;}
 </style>
 </head>
 <body>
 
-<nav id="nav">
-  <div class="nav-logo">ML</div>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#work">Work</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">· Mario Listyo ·</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="mailto:jobs@mariolistyo.com" class="nav-cta">Email Me</a>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-bg">
-    <div class="hero-geo g1"></div>
-    <div class="hero-geo g2"></div>
-    <div class="hero-geo g3"></div>
-  </div>
-  <div class="hero-content">
-    <div class="hero-label">HR & Learning & Development</div>
-    <h1 class="hero-name">
-      <span>Mario Listyo</span>
-      <span>Setiawan.</span>
-    </h1>
-    <p class="hero-tagline">People, Learning, and a Little Bit of Creativity.</p>
-  </div>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    <span>Scroll</span>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-label reveal">About</div>
-  <div class="about-grid">
-    <div class="about-photo-wrap reveal">
-      <div class="about-photo">
-        <div class="photo-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1"/>
-            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-          </svg>
-        </div>
+<section class="hero" id="about">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        HR & Learning Development Specialist
+      </div>
+      <h1>Hi, I'm <span>Mario Listyo</span> Setiawan</h1>
+      <p>HR & L&D professional passionate about designing impactful learning experiences, developing people, and building strong organizational culture through strategic human resource practices.</p>
+      <div class="hero-btns">
+        <a href="#experience" class="btn-primary">View My Experience</a>
+        <a href="#contact" class="btn-outline">Let's Connect</a>
       </div>
     </div>
-    <div class="reveal">
-      <div class="about-badge"><div class="about-badge-dot"></div> Available for Freelance</div>
-      <p class="about-bio">
-        HR and <strong>Learning & Development professional</strong> with a background in Educational Technology. Passionate about designing meaningful learning experiences and building systems that help people grow.<br><br>
-        I bring hands-on experience managing 100+ bootcamp participants, conducting Training Needs Analysis, and designing end-to-end programs using the ADDIE framework. Proficient in English (C1) with strong command of HR tools and digital learning platforms.
-      </p>
-      <div class="about-meta">
-        <div class="meta-item">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor" style="stroke:none"/></svg>
-          Cikupa, Tangerang · WIB (UTC+7)
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-avatar">ML</div>
+        <h3>Mario Listyo Setiawan</h3>
+        <p>HR & L&D · Cikupa, Tangerang</p>
+        <div class="hero-tag-badge">
+          <div class="dot"></div>
+          <span>Open to HR & L&D Opportunities</span>
         </div>
-        <div class="meta-item">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 2c1.66 0 3.18.55 4.4 1.46L5.46 16.4A8 8 0 0112 4zm0 16a8 8 0 01-4.4-1.46l10.94-10.94A8 8 0 0112 20z" fill="currentColor" style="stroke:none"/></svg>
-          Universitas Negeri Malang · GPA 3.67 / 4.00
+        <div class="hero-stats">
+          <div class="stat-box">
+            <div class="num">100+</div>
+            <div class="lbl">Bootcamp participants managed</div>
+          </div>
+          <div class="stat-box">
+            <div class="num">116</div>
+            <div class="lbl">Learners in ID project</div>
+          </div>
+          <div class="stat-box">
+            <div class="num">3.67</div>
+            <div class="lbl">GPA / 4.00</div>
+          </div>
+          <div class="stat-box">
+            <div class="num">C1</div>
+            <div class="lbl">English proficiency</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WORK -->
-<section id="work" style="padding-top:80px;padding-left:0;padding-right:0">
-  <div style="padding:0 40px" class="reveal">
-    <div class="section-label">Selected Work</div>
-    <div class="section-title">Projects</div>
+<!-- WHAT I DO -->
+<section id="services" class="section-alt">
+  <div class="section-inner fade-in">
+    <div class="section-label">What I Do</div>
+    <div class="section-title">How I Can Help You</div>
+    <div class="section-sub">Combining educational technology background with hands-on HR experience to deliver meaningful results.</div>
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke="currentColor"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h3>Instructional Design</h3>
+        <p>Designing end-to-end learning programs using the ADDIE framework, from needs analysis through evaluation, tailored to adult learners across various levels.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3>Training Needs Analysis</h3>
+        <p>Conducting systematic TNA to identify skill gaps, align learning objectives with business goals, and build targeted training programs that drive real performance improvement.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke="currentColor"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>HR Program Coordination</h3>
+        <p>Managing HR bootcamps and training programs for 100+ participants, overseeing scheduling, communication, data tracking, and cross-functional collaboration.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke="currentColor"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>LMS Administration</h3>
+        <p>Managing Google Classroom and digital learning platforms, creating structured content, assessments, and progress tracking to support effective online learning delivery.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Performance Management</h3>
+        <p>Supporting OKR frameworks, manpower planning (MPP), and performance review systems that help organizations develop talent and align individual goals with company objectives.</p>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke="currentColor"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3>SOP Development</h3>
+        <p>Developing clear, practical standard operating procedures for HR and training operations to ensure process consistency, quality, and organizational effectiveness.</p>
+      </div>
+    </div>
   </div>
-  <div class="work-grid">
+</section>
 
-    <div class="project-card reveal" onclick="openModal(0)">
-      <div class="project-num">01</div>
-      <div class="project-thumb" style="background:#141414">
-        <div class="project-thumb-inner" style="color:#2a2a2a">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M3 9h18M9 21V9" stroke="currentColor" stroke-width="1.2"/></svg>
-          <span>HR Bootcamp</span>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner fade-in">
+    <div class="section-label">Career Journey</div>
+    <div class="section-title">Professional Experience</div>
+    <div class="section-sub">A track record of real-world HR and L&D delivery across multiple organizations.</div>
+    <div class="exp-timeline">
+
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-meta">
+          <span class="exp-date-badge">April 2026 – Present</span>
+          <span class="exp-type-badge">Remote · Internship</span>
         </div>
+        <div class="exp-role">Class Administrator</div>
+        <div class="exp-company">Harisenin.com</div>
+        <ul class="exp-bullets">
+          <li>Managed end-to-end administration of an HR bootcamp for <strong>100+ participants</strong>, from preparation through program closing.</li>
+          <li>Coordinated class scheduling with Assistant Mentors and served as primary PIC for participants, mentors, and internal teams.</li>
+          <li>Assisted participants with HR content including OKR, Manpower Planning (MPP), TNA, and Performance Management.</li>
+          <li>Monitored engagement and reported on learning progress through feedback collection and periodic reporting.</li>
+        </ul>
       </div>
-      <div class="project-overlay">
-        <div class="project-tag">Learning & Development</div>
-        <div class="project-name">HR Bootcamp Administration</div>
-        <a class="view-link">View Project →</a>
-      </div>
-    </div>
 
-    <div class="project-card reveal" onclick="openModal(1)">
-      <div class="project-num">02</div>
-      <div class="project-thumb" style="background:#0e0e0e">
-        <div class="project-thumb-inner" style="color:#2a2a2a">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>Instructional Design</span>
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-meta">
+          <span class="exp-date-badge">Dec 2025 – Present</span>
+          <span class="exp-type-badge">Remote · Volunteer</span>
         </div>
+        <div class="exp-role">Class Manager</div>
+        <div class="exp-company">Kanca Bahasa</div>
+        <ul class="exp-bullets">
+          <li>Served as PIC for a TOEFL preparation collaboration between Kanca Bahasa and ITC, managing partner relationships and participant selection.</li>
+          <li>Conducted TNA to align workshop content with participant learning needs and program objectives.</li>
+          <li>Managed scheduling, attendance (Excel), and material distribution via Google Classroom and Google Drive.</li>
+        </ul>
       </div>
-      <div class="project-overlay">
-        <div class="project-tag">Instructional Design</div>
-        <div class="project-name">Environmental Sustainability Course</div>
-        <a class="view-link">View Project →</a>
-      </div>
-    </div>
 
-    <div class="project-card reveal" onclick="openModal(2)">
-      <div class="project-num">03</div>
-      <div class="project-thumb" style="background:#121212">
-        <div class="project-thumb-inner" style="color:#2a2a2a">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.2"/><path d="M12 8v4l3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-          <span>TOEFL Program</span>
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-meta">
+          <span class="exp-date-badge">Jan 2026 – Mar 2026</span>
+          <span class="exp-type-badge">Remote · Volunteer</span>
         </div>
+        <div class="exp-role">Instructional Designer</div>
+        <div class="exp-company">Enviro Indonesia</div>
+        <ul class="exp-bullets">
+          <li>Designed an end-to-end Environmental Sustainability course for <strong>116 participants</strong> across two academic levels using the ADDIE framework.</li>
+          <li>Developed 2 customized syllabi and created learning materials using PowerPoint, Google Workspace, and Notion.</li>
+          <li>Managed LMS administration and designed assessments to evaluate learning outcomes at each program stage.</li>
+        </ul>
       </div>
-      <div class="project-overlay">
-        <div class="project-tag">Program Coordination</div>
-        <div class="project-name">TOEFL Preparation Program</div>
-        <a class="view-link">View Project →</a>
-      </div>
-    </div>
 
-    <div class="project-card reveal" onclick="openModal(3)">
-      <div class="project-num">04</div>
-      <div class="project-thumb" style="background:#0f0f0f">
-        <div class="project-thumb-inner" style="color:#2a2a2a">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M8 21h8M12 17v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-          <span>Digital Training</span>
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-meta">
+          <span class="exp-date-badge">Aug 2022 – Oct 2022</span>
+          <span class="exp-type-badge">On-site · Internship</span>
         </div>
+        <div class="exp-role">Training & Learning Designer</div>
+        <div class="exp-company">BPSDMP Kominfo Surabaya</div>
+        <ul class="exp-bullets">
+          <li>Facilitated <strong>3 training sessions per day</strong> with 20–25 learners per class across elementary, senior high, and vocational levels.</li>
+          <li>Developed offline and online learning materials on Microsoft Office and Google Workspace.</li>
+          <li>Designed Kahoot quizzes and practical exercises to evaluate participant achievement per session.</li>
+        </ul>
       </div>
-      <div class="project-overlay">
-        <div class="project-tag">Training Design</div>
-        <div class="project-name">Digital Literacy Training — BPSDMP</div>
-        <a class="view-link">View Project →</a>
-      </div>
-    </div>
 
+    </div>
   </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills">
-  <div class="section-label reveal">Expertise</div>
-  <div class="section-title reveal">Skills</div>
-  <div class="skills-container">
-
-    <div class="skill-group reveal">
-      <div class="skill-group-name">HR & Learning & Development</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Training Needs Analysis</span>
-        <span class="skill-tag">Instructional Design</span>
-        <span class="skill-tag">ADDIE Framework</span>
-        <span class="skill-tag">Performance Management</span>
-        <span class="skill-tag">Manpower Planning</span>
-        <span class="skill-tag">Recruitment & Selection</span>
-        <span class="skill-tag">SOP Development</span>
-        <span class="skill-tag">People Development</span>
-        <span class="skill-tag">LMS Administration</span>
+<section id="skills" class="section-alt">
+  <div class="section-inner fade-in">
+    <div class="section-label">Competencies</div>
+    <div class="section-title">Skills & Expertise</div>
+    <div class="section-sub">A well-rounded set of HR, L&D, and digital skills built through education and hands-on experience.</div>
+    <div class="skills-wrap">
+      <div class="skill-group">
+        <h4>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          HR & L&D
+        </h4>
+        <div class="skill-tags">
+          <span class="skill-tag tag-blue">Training Needs Analysis</span>
+          <span class="skill-tag tag-blue">Instructional Design (ADDIE)</span>
+          <span class="skill-tag tag-blue">Performance Management</span>
+          <span class="skill-tag tag-blue">Manpower Planning</span>
+          <span class="skill-tag tag-blue">Recruitment & Selection</span>
+          <span class="skill-tag tag-blue">SOP Development</span>
+          <span class="skill-tag tag-blue">People Development</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          Tools & Platforms
+        </h4>
+        <div class="skill-tags">
+          <span class="skill-tag tag-orange">Microsoft Office Suite</span>
+          <span class="skill-tag tag-orange">Google Workspace</span>
+          <span class="skill-tag tag-orange">Google Classroom (LMS)</span>
+          <span class="skill-tag tag-orange">Notion</span>
+          <span class="skill-tag tag-orange">HRIS</span>
+          <span class="skill-tag tag-orange">Kahoot</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          Soft Skills
+        </h4>
+        <div class="skill-tags">
+          <span class="skill-tag tag-gray">Cross-functional Collaboration</span>
+          <span class="skill-tag tag-gray">Class Facilitation</span>
+          <span class="skill-tag tag-gray">Program Coordination</span>
+          <span class="skill-tag tag-gray">Adult Learning</span>
+          <span class="skill-tag tag-gray">Data & Reporting</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Language
+        </h4>
+        <div class="skill-tags">
+          <span class="skill-tag tag-blue">Indonesian (Native)</span>
+          <span class="skill-tag tag-blue">English – C1 Proficient</span>
+        </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="skill-group reveal">
-      <div class="skill-group-name">Tools & Platforms</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Microsoft Office</span>
-        <span class="skill-tag">Google Workspace</span>
-        <span class="skill-tag">Google Classroom</span>
-        <span class="skill-tag">Notion</span>
-        <span class="skill-tag">HRIS</span>
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-inner fade-in">
+    <div class="section-label">Credentials</div>
+    <div class="section-title">Certifications & Training</div>
+    <div class="section-sub">Continuously investing in professional development to stay current in HR and L&D best practices.</div>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke="currentColor"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+        <div>
+          <div class="cert-name">L&D Professional Training</div>
+          <div class="cert-org">Talentiv</div>
+          <div class="cert-date">January 2026</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke="currentColor"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+        <div>
+          <div class="cert-name">Training Needs Analysis for L&D</div>
+          <div class="cert-org">IODA Academy</div>
+          <div class="cert-date">December 2025</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke="currentColor"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+        <div>
+          <div class="cert-name">Learning Designer</div>
+          <div class="cert-org">IODA Academy</div>
+          <div class="cert-date">Dec 2025 – Jan 2026</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke="currentColor"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+        <div>
+          <div class="cert-name">Human Resource Information System (HRIS)</div>
+          <div class="cert-org">Quantum HR Indonesia</div>
+          <div class="cert-date">November 2025</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke="currentColor"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+        <div>
+          <div class="cert-name">HR Generalist (Recruitment, SOP, Performance Mgmt, L&D)</div>
+          <div class="cert-org">Talentiv</div>
+          <div class="cert-date">Nov – Dec 2025</div>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke="currentColor"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+        <div>
+          <div class="cert-name">Microsoft Certified Educator & 21st Century Educator</div>
+          <div class="cert-org">MyEdusolve</div>
+          <div class="cert-date">Mar – Oct 2022</div>
+        </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="skill-group reveal">
-      <div class="skill-group-name">Soft Skills</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Cross-functional Collaboration</span>
-        <span class="skill-tag">Class Facilitation</span>
-        <span class="skill-tag">Program Coordination</span>
-        <span class="skill-tag">Adult Learning</span>
-        <span class="skill-tag">Data & Reporting</span>
+<!-- EDUCATION -->
+<section class="section-alt">
+  <div class="section-inner fade-in">
+    <div class="section-label">Education</div>
+    <div class="section-title">Academic Background</div>
+    <div class="section-sub" style="margin-bottom:32px;">Foundation in Educational Technology from a leading Indonesian state university.</div>
+    <div class="edu-card">
+      <div class="edu-logo">UM</div>
+      <div class="edu-info">
+        <h3>Universitas Negeri Malang</h3>
+        <p>Bachelor of Educational Technology (S1 Teknologi Pendidikan)</p>
+        <span class="gpa">⭐ GPA 3.67 / 4.00</span>
       </div>
+      <div class="edu-date">Aug 2019 – Aug 2023</div>
     </div>
-
-    <div class="skill-group reveal">
-      <div class="skill-group-name">Language</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Indonesian — Native</span>
-        <span class="skill-tag">English — C1 Proficient</span>
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="contact-inner">
-    <div class="section-label reveal">Contact</div>
-    <div class="contact-big reveal">Let's <em>work</em><br>together.</div>
-    <div class="contact-links reveal">
-      <a href="mailto:jobs@mariolistyo.com" class="contact-link">
-        <div>
-          <div class="contact-link-label">Email</div>
-          <div class="contact-link-val">jobs@mariolistyo.com</div>
+  <div class="section-inner fade-in">
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <div class="section-label">Get In Touch</div>
+        <h2>Let's Start a Project Together?</h2>
+        <p>Whether you're looking for an HR coordinator, L&D designer, or a passionate team member to help grow your people — I'd love to connect.</p>
+        <div class="contact-links">
+          <a href="mailto:jobs@mariolistyo.com" class="contact-link">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            jobs@mariolistyo.com
+          </a>
+          <a href="tel:+6289662168259" class="contact-link">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke="currentColor"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+            +62 896-6216-8259
+          </a>
+          <a href="https://linkedin.com/in/mariolistyo" target="_blank" class="contact-link">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+            linkedin.com/in/mariolistyo
+          </a>
+          <a href="https://mariolistyo.com" target="_blank" class="contact-link">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+            mariolistyo.com
+          </a>
         </div>
-        <div class="contact-arrow">↗</div>
-      </a>
-      <a href="https://linkedin.com/in/mariolistyo" target="_blank" class="contact-link">
-        <div>
-          <div class="contact-link-label">LinkedIn</div>
-          <div class="contact-link-val">linkedin.com/in/mariolistyo</div>
+      </div>
+      <div class="contact-visual">
+        <h3>Currently Available</h3>
+        <p>Open to internships, full-time roles, and project collaborations in HR & L&D.</p>
+        <div class="avail-row">
+          <div class="avail-dot"></div>
+          <div class="avail-text">Available for new opportunities</div>
         </div>
-        <div class="contact-arrow">↗</div>
-      </a>
-      <a href="https://mariolistyo.com" target="_blank" class="contact-link">
-        <div>
-          <div class="contact-link-label">Website</div>
-          <div class="contact-link-val">mariolistyo.com</div>
+        <div class="avail-row">
+          <div class="avail-dot"></div>
+          <div class="avail-text">Based in Cikupa, Tangerang (remote-friendly)</div>
         </div>
-        <div class="contact-arrow">↗</div>
-      </a>
+        <div class="open-to">
+          <span class="open-badge">HR Generalist</span>
+          <span class="open-badge">L&D Specialist</span>
+          <span class="open-badge">Training Coordinator</span>
+          <span class="open-badge">Instructional Designer</span>
+          <span class="open-badge">Class Administrator</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <div class="footer-copy">© 2026 Mario Listyo Setiawan</div>
-  <div class="footer-credit">Designed & built by <span>Mario Listyo Setiawan</span></div>
+  <p>· <span>Mario Listyo Setiawan</span> · &nbsp;|&nbsp; HR & Learning Development Specialist &nbsp;|&nbsp; Cikupa, Tangerang &nbsp;·</p>
+  <p style="margin-top:8px;font-size:0.78rem;">LinkedIn &nbsp;·&nbsp; mariolistyo.com &nbsp;·&nbsp; jobs@mariolistyo.com</p>
 </footer>
 
-<!-- PROJECT MODAL -->
-<div class="modal-bg" id="modalBg" onclick="closeModal(event)">
-  <div class="modal" id="modal">
-    <button class="modal-close" onclick="closeModal(null,true)">×</button>
-    <div class="modal-tag" id="mTag"></div>
-    <div class="modal-title" id="mTitle"></div>
-    <div class="modal-section">
-      <h4>Role & Duration</h4>
-      <p id="mRole"></p>
-    </div>
-    <div class="modal-section">
-      <h4>Overview</h4>
-      <p id="mOverview"></p>
-    </div>
-    <div class="modal-section">
-      <h4>Key Achievements</h4>
-      <p id="mAchieve"></p>
-    </div>
-    <div class="modal-nav">
-      <button class="modal-nav-btn" onclick="prevProject()">← Previous</button>
-      <button class="modal-nav-btn" onclick="nextProject()">Next →</button>
-    </div>
-  </div>
-</div>
-
 <script>
-const projects=[
-  {tag:"Learning & Development",title:"HR Bootcamp Administration",role:"Class Administrator · Harisenin.com · Internship · April 2026 – Present",overview:"Managed end-to-end administration of an HR bootcamp program for 100+ participants, covering program preparation, execution, and closing phases in a fully remote environment.",achieve:"Coordinated scheduling with mentors, maintained participant databases and attendance records, and assisted participants with HR materials including OKR, Manpower Planning, TNA, and Performance Management."},
-  {tag:"Instructional Design",title:"Environmental Sustainability Course",role:"Instructional Designer · Enviro Indonesia · Volunteer · Jan–Mar 2026",overview:"Designed end-to-end learning experiences for an Environmental Sustainability and Innovation course for 116 participants across two academic levels using the ADDIE framework.",achieve:"Developed 2 customized syllabi and created learning materials using PowerPoint, Google Workspace, and Notion. Managed LMS administration via Google Classroom and designed assessments to evaluate learning outcomes."},
-  {tag:"Program Coordination",title:"TOEFL Preparation Program",role:"Class Manager · Kanca Bahasa · Volunteer · Dec 2025 – Present",overview:"Served as PIC for a TOEFL preparation program collaboration between Kanca Bahasa and ITC, overseeing participant selection and partner relationship management.",achieve:"Conducted TNA to identify participant needs, moderated workshops, managed class scheduling and attendance tracking via Excel, and handled multi-channel communication through WhatsApp Group and email."},
-  {tag:"Training Design",title:"Digital Literacy Training — BPSDMP",role:"Training & Learning Designer · BPSDMP Kominfo Surabaya · On-site Internship · Aug–Oct 2022",overview:"Developed offline and online learning materials on Microsoft Office and Google Workspace for elementary, senior high, and vocational school participants.",achieve:"Facilitated 3 training sessions per day with 20–25 learners per class. Designed evaluations including Kahoot quizzes and practical exercises to assess participant achievement per session."}
-];
-
-let cur=0;
-function openModal(i){cur=i;fillModal();document.getElementById('modalBg').classList.add('open')}
-function fillModal(){
-  const p=projects[cur];
-  document.getElementById('mTag').textContent=p.tag;
-  document.getElementById('mTitle').textContent=p.title;
-  document.getElementById('mRole').textContent=p.role;
-  document.getElementById('mOverview').textContent=p.overview;
-  document.getElementById('mAchieve').textContent=p.achieve;
-}
-function closeModal(e,force){if(force||e.target===document.getElementById('modalBg'))document.getElementById('modalBg').classList.remove('open')}
-function nextProject(){cur=(cur+1)%projects.length;fillModal()}
-function prevProject(){cur=(cur-1+projects.length)%projects.length;fillModal()}
-
-// Nav scroll
-window.addEventListener('scroll',()=>{
-  document.getElementById('nav').classList.toggle('scrolled',scrollY>60);
-  document.querySelectorAll('.reveal').forEach(el=>{
-    if(el.getBoundingClientRect().top<window.innerHeight-60)el.classList.add('visible');
-  });
-});
-setTimeout(()=>window.dispatchEvent(new Event('scroll')),100);
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');}});
+},{threshold:0.12});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>
