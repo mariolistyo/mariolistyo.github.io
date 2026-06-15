@@ -3,313 +3,147 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Mario Listyo Setiawan – HR & Learning Development Specialist. Portfolio pribadi.">
-<meta name="keywords" content="HR, Learning Development, Instructional Design, TNA, ADDIE, Mario Listyo">
+<meta name="description" content="Mario Listyo Setiawan — Personal Assistant & Remote-Ready Administrator. Portfolio pribadi.">
+<meta name="keywords" content="Personal Assistant, HR Admin, Remote Administrator, Virtual Assistant, Mario Listyo Setiawan">
 <meta name="author" content="Mario Listyo Setiawan">
-<title>Mario Listyo Setiawan | HR & L&D Specialist</title>
+<title>Mario Listyo Setiawan | Personal Assistant & Remote Administrator</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --bg: #fafafa;
-    --surface: #ffffff;
-    --border: rgba(0,0,0,0.08);
-    --text: #1a1a1a;
-    --muted: #666;
-    --tag-bg: #f0f0f0;
-    --tag-text: #555;
-    --accent: #111;
-    --accent-inv: #fff;
-    --section-alt: #f4f4f4;
-    --dot: #e0e0e0;
-    --dot-border: #bbb;
-    --nav-bg: transparent;
-    --nav-border: transparent;
-    --card-shadow: rgba(0,0,0,0.07);
+    --bg: #fafafa; --surface: #ffffff; --border: rgba(0,0,0,0.08);
+    --text: #1a1a1a; --muted: #666; --tag-bg: #f0f0f0; --tag-text: #555;
+    --accent: #111; --accent-inv: #fff; --section-alt: #f4f4f4;
+    --dot: #e0e0e0; --dot-border: #bbb; --nav-bg: transparent;
+    --nav-border: transparent; --card-shadow: rgba(0,0,0,0.07);
   }
-
   [data-theme="dark"] {
-    --bg: #0f0f0f;
-    --surface: #1a1a1a;
-    --border: rgba(255,255,255,0.08);
-    --text: #e8e8e8;
-    --muted: #888;
-    --tag-bg: #2a2a2a;
-    --tag-text: #aaa;
-    --accent: #e8e8e8;
-    --accent-inv: #111;
-    --section-alt: #141414;
-    --dot: #333;
-    --dot-border: #666;
-    --card-shadow: rgba(0,0,0,0.4);
+    --bg: #0f0f0f; --surface: #1a1a1a; --border: rgba(255,255,255,0.08);
+    --text: #e8e8e8; --muted: #888; --tag-bg: #2a2a2a; --tag-text: #aaa;
+    --accent: #e8e8e8; --accent-inv: #111; --section-alt: #141414;
+    --dot: #333; --dot-border: #666; --card-shadow: rgba(0,0,0,0.4);
   }
 
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    transition: background .3s, color .3s;
-    line-height: 1.6;
-  }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); transition: background .3s, color .3s; line-height: 1.6; }
 
   /* LOADER */
-  #loader {
-    position: fixed; inset: 0;
-    background: var(--bg);
-    display: flex; align-items: center; justify-content: center;
-    z-index: 9999;
-    transition: opacity .5s ease .1s;
-  }
+  #loader { position: fixed; inset: 0; background: var(--bg); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity .5s ease .1s; }
   #loader span { font-size: 13px; letter-spacing: .1em; color: var(--muted); }
   #loader.out { opacity: 0; pointer-events: none; }
 
   /* NAV */
-  nav {
-    position: sticky; top: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 24px; height: 56px;
-    background: var(--nav-bg);
-    border-bottom: 1px solid var(--nav-border);
-    backdrop-filter: blur(0px);
-    transition: background .4s, border-color .4s, backdrop-filter .4s;
-  }
-  nav.scrolled {
-    --nav-bg: rgba(250,250,250,0.92);
-    --nav-border: rgba(0,0,0,0.08);
-    backdrop-filter: blur(12px);
-  }
-  [data-theme="dark"] nav.scrolled {
-    --nav-bg: rgba(15,15,15,0.92);
-    --nav-border: rgba(255,255,255,0.08);
-  }
-  .nav-logo {
-    font-weight: 700; font-size: 15px; letter-spacing: -.3px;
-    color: var(--text); cursor: pointer; text-decoration: none;
-  }
+  nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 56px; background: var(--nav-bg); border-bottom: 1px solid var(--nav-border); backdrop-filter: blur(0px); transition: background .4s, border-color .4s, backdrop-filter .4s; }
+  nav.scrolled { --nav-bg: rgba(250,250,250,0.92); --nav-border: rgba(0,0,0,0.08); backdrop-filter: blur(12px); }
+  [data-theme="dark"] nav.scrolled { --nav-bg: rgba(15,15,15,0.92); --nav-border: rgba(255,255,255,0.08); }
+  .nav-logo { font-weight: 700; font-size: 15px; letter-spacing: -.3px; color: var(--text); cursor: pointer; text-decoration: none; }
   .nav-links { display: flex; gap: 28px; list-style: none; }
-  .nav-links a {
-    font-size: 14px; color: var(--muted); text-decoration: none;
-    transition: color .2s;
-  }
+  .nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color .2s; }
   .nav-links a:hover { color: var(--text); }
   .nav-right { display: flex; align-items: center; gap: 12px; }
 
-  /* DARK TOGGLE */
-  .toggle {
-    width: 36px; height: 20px; border-radius: 10px;
-    background: var(--accent); position: relative;
-    cursor: pointer; border: none; flex-shrink: 0;
-    transition: background .3s;
-  }
-  .toggle-dot {
-    position: absolute; top: 2px;
-    width: 16px; height: 16px; border-radius: 50%;
-    background: var(--bg);
-    transition: left .25s ease, background .3s;
-    box-shadow: 0 1px 3px rgba(0,0,0,.2);
-    left: 2px;
-  }
+  /* TOGGLE */
+  .toggle { width: 36px; height: 20px; border-radius: 10px; background: var(--accent); position: relative; cursor: pointer; border: none; flex-shrink: 0; transition: background .3s; }
+  .toggle-dot { position: absolute; top: 2px; width: 16px; height: 16px; border-radius: 50%; background: var(--bg); transition: left .25s ease, background .3s; box-shadow: 0 1px 3px rgba(0,0,0,.2); left: 2px; }
   [data-theme="dark"] .toggle-dot { left: 18px; }
 
   /* HAMBURGER */
-  .hamburger {
-    display: none; background: none; border: none;
-    color: var(--text); cursor: pointer; font-size: 18px; padding: 4px;
-  }
-  .mobile-menu {
-    display: none; background: var(--surface);
-    border-bottom: 1px solid var(--border); padding: 16px 24px;
-  }
+  .hamburger { display: none; background: none; border: none; color: var(--text); cursor: pointer; font-size: 18px; padding: 4px; }
+  .mobile-menu { display: none; background: var(--surface); border-bottom: 1px solid var(--border); padding: 16px 24px; }
   .mobile-menu.open { display: block; }
-  .mobile-menu a {
-    display: block; padding: 10px 0; font-size: 15px;
-    color: var(--text); text-decoration: none;
-    border-bottom: 1px solid var(--border);
-  }
+  .mobile-menu a { display: block; padding: 10px 0; font-size: 15px; color: var(--text); text-decoration: none; border-bottom: 1px solid var(--border); }
 
   /* SECTIONS */
   .container { max-width: 840px; margin: 0 auto; padding: 72px 24px; }
   .section-alt { background: var(--section-alt); }
-  .section-alt .container { max-width: 840px; }
 
   /* HERO */
-  .hero {
-    max-width: 840px; margin: 0 auto;
-    padding: 80px 24px 64px;
-  }
-  .hero-inner {
-    display: flex; flex-wrap: wrap;
-    align-items: center; justify-content: space-between; gap: 32px;
-  }
+  .hero { max-width: 840px; margin: 0 auto; padding: 80px 24px 64px; }
+  .hero-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px; }
   .hero-text { flex: 1 1 300px; }
-  .badge {
-    display: inline-block; padding: 4px 12px; border-radius: 20px;
-    background: var(--tag-bg); color: var(--tag-text);
-    font-size: 12px; font-weight: 500; margin-bottom: 20px;
-  }
-  .hero h1 {
-    font-size: clamp(32px, 7vw, 52px);
-    font-weight: 800; letter-spacing: -1.5px;
-    line-height: 1.1; margin-bottom: 16px; color: var(--text);
-  }
-  .hero-role {
-    font-size: 18px; color: var(--muted); font-weight: 400;
-    margin-bottom: 8px; letter-spacing: -.3px;
-  }
-  .hero-desc {
-    font-size: 14px; color: var(--muted);
-    line-height: 1.7; max-width: 440px; margin-bottom: 28px;
-  }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 20px; background: var(--tag-bg); color: var(--tag-text); font-size: 12px; font-weight: 500; margin-bottom: 20px; }
+  .hero h1 { font-size: clamp(32px, 7vw, 52px); font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 16px; color: var(--text); }
+  .hero-role { font-size: 17px; color: var(--muted); font-weight: 400; margin-bottom: 8px; letter-spacing: -.3px; }
+  .hero-desc { font-size: 14px; color: var(--muted); line-height: 1.7; max-width: 440px; margin-bottom: 28px; }
   .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 10px 20px; border-radius: 8px;
-    border: 1px solid var(--border);
-    background: var(--surface); color: var(--text);
-    font-size: 13px; font-weight: 500; cursor: pointer;
-    transition: background .2s, transform .15s, opacity .2s;
-    text-decoration: none; font-family: inherit;
-  }
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 13px; font-weight: 500; cursor: pointer; transition: background .2s, transform .15s, opacity .2s; text-decoration: none; font-family: inherit; }
   .btn:hover { transform: translateY(-1px); background: var(--tag-bg); }
-  .btn-primary {
-    background: var(--accent); color: var(--accent-inv); border: none;
-  }
+  .btn-primary { background: var(--accent); color: var(--accent-inv); border: none; }
   .btn-primary:hover { opacity: .85; background: var(--accent); }
 
-  /* LABEL */
-  .section-label {
-    font-size: 11px; font-weight: 700; letter-spacing: .08em;
-    text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
-  }
-  .section-title {
-    font-size: 28px; font-weight: 700; letter-spacing: -.5px;
-    margin-bottom: 8px; color: var(--text);
-  }
+  /* LABELS */
+  .section-label { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .section-title { font-size: 28px; font-weight: 700; letter-spacing: -.5px; margin-bottom: 8px; color: var(--text); }
   .divider { border-color: var(--border); margin: 0 0 48px; }
 
-  /* FADE-IN */
+  /* FADE */
   .fade { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
   .fade.visible { opacity: 1; transform: translateY(0); }
 
-  /* SKILLS GRID */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-  }
-  .skill-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 16px; padding: 24px;
-    transition: transform .2s, box-shadow .2s;
-  }
-  .skill-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px var(--card-shadow);
-  }
-  .skill-cat {
-    font-size: 11px; font-weight: 700; letter-spacing: .06em;
-    text-transform: uppercase; color: var(--muted); margin-bottom: 12px;
-  }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tag {
-    display: inline-block; padding: 4px 12px; border-radius: 20px;
-    background: var(--tag-bg); color: var(--tag-text);
-    font-size: 12px; font-weight: 500;
-  }
+  /* ABOUT OFFER */
+  .about-offer { margin-bottom: 28px; max-width: 640px; }
+  .about-offer-title { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+  .offer-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px; }
+  .offer-bullet { color: var(--muted); flex-shrink: 0; font-size: 14px; line-height: 1.7; margin-top: 1px; }
+  .offer-text { font-size: 14px; color: var(--muted); line-height: 1.7; }
+  .offer-text strong { color: var(--text); font-weight: 600; }
 
-  /* PROJECTS */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
-  }
-  .project-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 16px; padding: 24px;
-    display: flex; flex-direction: column; gap: 12px;
-    transition: transform .2s, box-shadow .2s;
-  }
-  .project-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px var(--card-shadow);
-  }
-  .project-icon { font-size: 28px; }
-  .project-title { font-size: 16px; font-weight: 700; margin-bottom: 2px; color: var(--text); }
-  .project-org { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
-  .project-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
-  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .skill-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px; transition: transform .2s, box-shadow .2s; }
+  .skill-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px var(--card-shadow); }
+  .skill-cat { font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { display: inline-block; padding: 4px 12px; border-radius: 20px; background: var(--tag-bg); color: var(--tag-text); font-size: 12px; font-weight: 500; }
 
   /* TIMELINE */
   .timeline { display: flex; flex-direction: column; }
   .tl-item { display: flex; gap: 20px; padding-bottom: 36px; }
-  .tl-left {
-    display: flex; flex-direction: column;
-    align-items: center; width: 15px;
-  }
-  .tl-dot {
-    width: 15px; height: 15px; border-radius: 50%;
-    background: var(--dot); border: 2px solid var(--dot-border);
-    flex-shrink: 0; margin-top: 3px; position: relative; z-index: 1;
-  }
-  .tl-line {
-    flex: 1; width: 1px; background: var(--border); margin-top: 4px;
-  }
-  .tl-content { flex: 1; }
-  .tl-header {
-    display: flex; flex-wrap: wrap;
-    justify-content: space-between; gap: 4px; margin-bottom: 4px;
-  }
+  .tl-left { display: flex; flex-direction: column; align-items: center; width: 15px; }
+  .tl-dot { width: 15px; height: 15px; border-radius: 50%; background: var(--dot); border: 2px solid var(--dot-border); flex-shrink: 0; margin-top: 3px; position: relative; z-index: 1; }
+  .tl-line { flex: 1; width: 1px; background: var(--border); margin-top: 4px; }
+  .tl-content { flex: 1; min-width: 0; }
+  .tl-header { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px; margin-bottom: 4px; }
   .tl-role { font-size: 15px; font-weight: 700; color: var(--text); }
   .tl-date { font-size: 12px; color: var(--muted); }
   .tl-company { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
-  .tl-bullets { padding-left: 16px; }
+  .tl-bullets { padding-left: 16px; margin-bottom: 4px; }
   .tl-bullets li { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 4px; }
 
+  /* PORTFOLIO SLOT */
+  .portfolio-slot { margin-top: 14px; padding: 12px 16px; border: 1px dashed var(--border); border-radius: 10px; display: flex; align-items: center; gap: 12px; opacity: .7; }
+  .portfolio-slot-icon { font-size: 18px; flex-shrink: 0; }
+  .portfolio-slot-label { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+  .portfolio-slot-note { font-size: 12px; color: var(--muted); }
+
   /* CERTS */
-  .certs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 12px; margin-top: 48px;
-  }
-  .cert-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 16px; padding: 16px 18px;
-  }
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 48px; }
+  .cert-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 16px 18px; }
   .cert-name { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
   .cert-org { font-size: 12px; color: var(--muted); }
 
   /* CONTACT */
-  .contact-card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 16px; padding: 32px; max-width: 480px;
-  }
+  .contact-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 32px; max-width: 480px; }
   .contact-desc { font-size: 14px; color: var(--muted); line-height: 1.75; margin-bottom: 28px; }
   .contact-list { display: flex; flex-direction: column; gap: 16px; }
-  .contact-item {
-    display: flex; align-items: center; gap: 12px;
-    padding: 12px 14px; border-radius: 10px; background: var(--tag-bg);
-  }
+  .contact-item { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 10px; background: var(--tag-bg); }
   .contact-item-icon { font-size: 16px; }
   .contact-item-label { font-size: 11px; color: var(--muted); margin-bottom: 1px; }
   .contact-item-value { font-size: 13px; font-weight: 500; color: var(--text); text-decoration: none; }
   .contact-item-value:hover { text-decoration: underline; }
 
   /* FOOTER */
-  footer {
-    text-align: center; padding: 24px;
-    border-top: 1px solid var(--border);
-    font-size: 12px; color: var(--muted);
-  }
+  footer { text-align: center; padding: 24px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); }
 
   /* RESPONSIVE */
   @media (max-width: 640px) {
     .nav-links { display: none; }
     .hamburger { display: block; }
     .hero { padding: 48px 24px 40px; }
+    .tl-role { font-size: 14px; }
+    .offer-text { font-size: 13px; }
   }
 </style>
 </head>
@@ -323,7 +157,6 @@
   <a href="#hero" class="nav-logo">ML.</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -338,7 +171,6 @@
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about" onclick="closeMobile()">About</a>
-  <a href="#projects" onclick="closeMobile()">Projects</a>
   <a href="#experience" onclick="closeMobile()">Experience</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
 </div>
@@ -350,14 +182,13 @@
       <div class="hero-text">
         <span class="badge">Open to opportunities</span>
         <h1>Mario Listyo<br>Setiawan</h1>
-        <p class="hero-role">Office Administration  |  HR Operations  |  Personal Assistant</p>
-        <p class="hero-desc">Aspiring HR professional with a Bachelor's degree in Educational Technology and proven hands-on experience in learning & development, training administration, and HR operations support across fully remote and distributed environments. English C1.</p>
+        <p class="hero-role">Personal Assistant | Human Resources | Remote-Ready Administrator</p>
+        <p class="hero-desc">Detail-oriented administrative professional and certified personal assistant with hands-on remote experience in HR operations, executive coordination, and office administration. Currently open to Personal Assistance, HR Admin, and Remote Office roles.</p>
         <div class="hero-btns">
           <a href="#contact" class="btn btn-primary">Contact Me ↗</a>
           <a href="#experience" class="btn">View Journey</a>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -371,10 +202,36 @@
       <hr class="divider">
     </div>
     <div class="fade" style="transition-delay:.1s">
-      <p style="font-size:15px;line-height:1.8;color:var(--muted);margin-bottom:40px;max-width:640px">
-        Aspiring HR professional with a Bachelor's degree in Educational Technology and proven hands-on experience in learning & development, training administration, and HR operations support within fully remote and distributed work environments. Experienced in managing end-to-end learning programs, conducting Training Needs Analysis (TNA), and facilitating online classes across edtech and nonprofit sectors. Skilled in leveraging digital collaboration tools including Slack, ClickUp, Notion, Zoom, and Google Workspace to coordinate cross-functional teams, maintain documentation, and ensure seamless remote program delivery. Eager to contribute and grow within a dynamic HR team, particularly in L&D, training coordination, and people development functions.
+      <p style="font-size:15px;line-height:1.8;color:var(--muted);margin-bottom:28px;max-width:640px">
+        Detail-oriented administrative professional and certified personal assistant with hands-on experience supporting operations, HR functions, and executive-level coordination entirely in remote environments. With a background in Educational Technology and certifications in HR Generalist functions and administrative assistance, I bring structured thinking and operational reliability to every role I take on. My work spans scheduling and calendar management, participant and stakeholder coordination, documentation, reporting, and cross-functional communication — skills I have applied across internship, volunteer, and program management settings.
       </p>
+
+      <div class="about-offer">
+        <p class="about-offer-title">What I Offer</p>
+        <div class="offer-item">
+          <span class="offer-bullet">•</span>
+          <p class="offer-text"><strong>Personal & Executive Assistant support:</strong> calendar management, correspondence handling, scheduling, and document preparation</p>
+        </div>
+        <div class="offer-item">
+          <span class="offer-bullet">•</span>
+          <p class="offer-text"><strong>HR & Administrative Operations:</strong> onboarding coordination, database management, reporting, and evaluation</p>
+        </div>
+        <div class="offer-item">
+          <span class="offer-bullet">•</span>
+          <p class="offer-text"><strong>Remote collaboration tools:</strong> Google Workspace, Notion, ClickUp, Slack, Trello, Zoom, LastPass</p>
+        </div>
+        <div class="offer-item">
+          <span class="offer-bullet">•</span>
+          <p class="offer-text"><strong>English proficiency</strong> at CEFR C1 level — capable of professional written and verbal communication</p>
+        </div>
+      </div>
+
+      <p style="font-size:14px;color:var(--muted);line-height:1.75;max-width:640px;margin-bottom:8px">
+        Currently open to remote roles in Personal Assistance, HR Administration, and Remote Office Operations, particularly with teams or executives who value proactive, organized, and reliable support.
+      </p>
+      <a href="mailto:jobs@mariolistyo.com" style="font-size:14px;color:var(--text);font-weight:500;text-decoration:none;display:inline-block;margin-bottom:40px">📩 jobs@mariolistyo.com</a>
     </div>
+
     <div class="skills-grid">
       <div class="skill-card fade" style="transition-delay:.0s">
         <p class="skill-cat">HR & L&D</p>
@@ -428,73 +285,7 @@
         <p class="skill-cat">Language</p>
         <div class="tags">
           <span class="tag">Indonesian (Native)</span>
-          <span class="tag">English – C1 Proficient</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="section-alt">
-  <div class="container">
-    <div class="fade">
-      <p class="section-label">Projects</p>
-      <h2 class="section-title">Selected Work</h2>
-      <hr class="divider">
-    </div>
-    <div class="projects-grid">
-      <div class="project-card fade" style="transition-delay:.0s">
-        <div class="project-icon">🎓</div>
-        <div>
-          <p class="project-title">HR Bootcamp Administration</p>
-          <p class="project-org">Harisenin.com</p>
-          <p class="project-desc">End-to-end management of an HR bootcamp for 100+ participants — scheduling, LMS admin, participant database, attendance tracking, and cross-team coordination across prep, execution, and closing phases.</p>
-        </div>
-        <div class="project-tags">
-          <span class="tag">HR Operations</span>
-          <span class="tag">LMS</span>
-          <span class="tag">Program Mgmt</span>
-        </div>
-      </div>
-      <div class="project-card fade" style="transition-delay:.07s">
-        <div class="project-icon">📋</div>
-        <div>
-          <p class="project-title">TOEIC ETS Scholarship Program</p>
-          <p class="project-org">Kanca Bahasa × ITC</p>
-          <p class="project-desc">PIC for a collaborative TOEIC ETS certification scholarship — ran participant screening, coordinated the full program timeline, distributed preparation materials, and compiled post-workshop evaluations using the Kirkpatrick Model (Level 1 & 2).</p>
-        </div>
-        <div class="project-tags">
-          <span class="tag">TNA</span>
-          <span class="tag">Training</span>
-          <span class="tag">Kirkpatrick Model</span>
-          <span class="tag">Facilitation</span>
-        </div>
-      </div>
-      <div class="project-card fade" style="transition-delay:.14s">
-        <div class="project-icon">🌿</div>
-        <div>
-          <p class="project-title">Environmental Sustainability Course</p>
-          <p class="project-org">Enviro Indonesia</p>
-          <p class="project-desc">Designed learning experiences using the ADDIE framework for 116 participants across two academic levels. Developed 2 customized syllabi and managed LMS via Google Classroom.</p>
-        </div>
-        <div class="project-tags">
-          <span class="tag">ADDIE</span>
-          <span class="tag">Instructional Design</span>
-          <span class="tag">Google Classroom</span>
-        </div>
-      </div>
-      <div class="project-card fade" style="transition-delay:.21s">
-        <div class="project-icon">💻</div>
-        <div>
-          <p class="project-title">Digital Literacy Training</p>
-          <p class="project-org">BPSDMP Kominfo Surabaya</p>
-          <p class="project-desc">Facilitated 3 training sessions/day for 20–25 learners per class on Microsoft Office and Google Workspace across SD/MI, SMA, and SMK levels. Designed assessments using Kahoot and practical exercises.</p>
-        </div>
-        <div class="project-tags">
-          <span class="tag">MS Office</span>
-          <span class="tag">Google Workspace</span>
-          <span class="tag">Facilitation</span>
+          <span class="tag">English — C1 Advanced — TOEIC 875</span>
         </div>
       </div>
     </div>
@@ -502,7 +293,7 @@
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience">
+<section id="experience" class="section-alt">
   <div class="container">
     <div class="fade">
       <p class="section-label">Experience</p>
@@ -516,7 +307,7 @@
         <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
         <div class="tl-content">
           <div class="tl-header">
-            <span class="tl-role">Human Resource Class Administrator</span>
+            <span class="tl-role">Class Administrator</span>
             <span class="tl-date">Apr 2026 – Present</span>
           </div>
           <p class="tl-company">Harisenin.com · Internship · Remote</p>
@@ -529,6 +320,13 @@
             <li>Monitored participant engagement and supported program evaluation through feedback collection and data reporting.</li>
             <li>Supported participants in developing practical HR deliverables such as CV Screening frameworks, Training Syllabi, and Company SOPs.</li>
           </ul>
+          <div class="portfolio-slot">
+            <span class="portfolio-slot-icon">📁</span>
+            <div>
+              <p class="portfolio-slot-label">Portfolio</p>
+              <p class="portfolio-slot-note">Coming soon — work samples will be uploaded here</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -537,7 +335,7 @@
         <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
         <div class="tl-content">
           <div class="tl-header">
-            <span class="tl-role">Community & Partnership Relation</span>
+            <span class="tl-role">Community & Partnership</span>
             <span class="tl-date">Mar 2026 – Present</span>
           </div>
           <p class="tl-company">Kanca Bahasa · Internship · Remote</p>
@@ -550,6 +348,13 @@
             <li>Served as technical support in charge during online TOEIC examinations, handling and resolving technical issues in real time.</li>
             <li>Submitted daily progress reports to ITC covering completed activities and the planned agenda for the following day; documented meeting notes from coordination meetings.</li>
           </ul>
+          <div class="portfolio-slot">
+            <span class="portfolio-slot-icon">📁</span>
+            <div>
+              <p class="portfolio-slot-label">Portfolio</p>
+              <p class="portfolio-slot-note">Coming soon — work samples will be uploaded here</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -558,7 +363,7 @@
         <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
         <div class="tl-content">
           <div class="tl-header">
-            <span class="tl-role">Personal Assistant to English Tutor</span>
+            <span class="tl-role">Personal Assistant & Teaching Assistant</span>
             <span class="tl-date">Dec 2025 – Present</span>
           </div>
           <p class="tl-company">Kanca Bahasa · Volunteer · Remote</p>
@@ -570,6 +375,13 @@
             <li>Proactively anticipated tutor needs by preparing briefing notes, reminders, and session summaries ahead of scheduled activities.</li>
             <li>Maintained confidentiality of tutor and organizational data using LastPass as a secure credential management tool.</li>
           </ul>
+          <div class="portfolio-slot">
+            <span class="portfolio-slot-icon">📁</span>
+            <div>
+              <p class="portfolio-slot-label">Portfolio</p>
+              <p class="portfolio-slot-note">Coming soon — work samples will be uploaded here</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -590,6 +402,13 @@
             <li>Compiled post-class evaluation reports and collected participant feedback after each session to support continuous class improvement.</li>
             <li>Provided real-time technical support during online sessions and stepped in as substitute when tutor experienced technical issues.</li>
           </ul>
+          <div class="portfolio-slot">
+            <span class="portfolio-slot-icon">📁</span>
+            <div>
+              <p class="portfolio-slot-label">Portfolio</p>
+              <p class="portfolio-slot-note">Coming soon — work samples will be uploaded here</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -609,56 +428,51 @@
             <li>Coordinated session logistics including room setup, material distribution, and scheduling to ensure smooth program delivery.</li>
             <li>Designed learning assessments including Kahoot online quizzes and practical exercises to evaluate learning outcomes.</li>
           </ul>
+          <div class="portfolio-slot">
+            <span class="portfolio-slot-icon">📁</span>
+            <div>
+              <p class="portfolio-slot-label">Portfolio</p>
+              <p class="portfolio-slot-note">Coming soon — work samples will be uploaded here</p>
+            </div>
+          </div>
         </div>
       </div>
 
     </div>
 
-    <!-- CERTS -->
+    <!-- CERTIFICATIONS -->
     <div class="fade" style="transition-delay:.1s"><p class="section-label">Certifications & Training</p></div>
     <div class="certs-grid">
       <div class="cert-card fade" style="transition-delay:.0s">
+        <p class="cert-name">Virtual Assistant & Secretary</p>
+        <p class="cert-org">Harisenin · May 2026</p>
+      </div>
+      <div class="cert-card fade" style="transition-delay:.05s">
         <p class="cert-name">Career Essentials in Administrative Assistance</p>
         <p class="cert-org">Microsoft · Jan 2026</p>
       </div>
-      <div class="cert-card fade" style="transition-delay:.05s">
-        <p class="cert-name">L&D Professional Training</p>
+      <div class="cert-card fade" style="transition-delay:.10s">
+        <p class="cert-name">HR Generalist: Recruitment & Selection, SOP Development, Performance Management, L&D</p>
+        <p class="cert-org">Talentiv · Nov–Dec 2025</p>
+      </div>
+      <div class="cert-card fade" style="transition-delay:.15s">
+        <p class="cert-name">L&D Professional Training: Competency Mapping, Training Design & Measurement</p>
         <p class="cert-org">Talentiv · Jan 2026</p>
       </div>
-      <div class="cert-card fade" style="transition-delay:.10s">
+      <div class="cert-card fade" style="transition-delay:.20s">
         <p class="cert-name">Learning Designer</p>
         <p class="cert-org">IODA Academy · Dec 2025 – Jan 2026</p>
       </div>
-      <div class="cert-card fade" style="transition-delay:.15s">
+      <div class="cert-card fade" style="transition-delay:.25s">
         <p class="cert-name">Training Needs Analysis for L&D</p>
         <p class="cert-org">IODA Academy · Dec 2025</p>
       </div>
-      <div class="cert-card fade" style="transition-delay:.20s">
-        <p class="cert-name">HR Generalist</p>
-        <p class="cert-org">Talentiv · Nov – Dec 2025</p>
-      </div>
-      <div class="cert-card fade" style="transition-delay:.25s">
-        <p class="cert-name">Human Resource Information System (HRIS)</p>
-        <p class="cert-org">Nov 2025</p>
-      </div>
       <div class="cert-card fade" style="transition-delay:.30s">
-        <p class="cert-name">Basic Microsoft Excel Fundamentals</p>
-        <p class="cert-org">IODA Academy</p>
-      </div>
-      <div class="cert-card fade" style="transition-delay:.35s">
-        <p class="cert-name">Virtual Assistant</p>
-        <p class="cert-org">Certification</p>
-      </div>
-      <div class="cert-card fade" style="transition-delay:.40s">
-        <p class="cert-name">21st Century Educator</p>
-        <p class="cert-org">MyEdusolve · Mar – Oct 2022</p>
-      </div>
-      <div class="cert-card fade" style="transition-delay:.45s">
         <p class="cert-name">PMI: Project Management Ready</p>
         <p class="cert-org">MyEdusolve · 2022</p>
       </div>
-      <div class="cert-card fade" style="transition-delay:.50s">
-        <p class="cert-name">Microsoft Certified Educator · PowerPoint · Microsoft 365</p>
+      <div class="cert-card fade" style="transition-delay:.35s">
+        <p class="cert-name">Microsoft Certified Educator · Microsoft PowerPoint · Microsoft 365 & Office 2019</p>
         <p class="cert-org">MyEdusolve · 2022</p>
       </div>
     </div>
@@ -675,7 +489,7 @@
     </div>
     <div class="fade" style="transition-delay:.1s">
       <div class="contact-card">
-        <p class="contact-desc">I'm open to HR, L&D, training coordination, and instructional design roles. Feel free to reach out — I'd love to connect!</p>
+        <p class="contact-desc">I'm open to remote roles in Personal Assistance, HR Administration, and Remote Office Operations. Feel free to reach out — I'd love to connect!</p>
         <div class="contact-list">
           <div class="contact-item">
             <span class="contact-item-icon">✉️</span>
@@ -685,7 +499,7 @@
             </div>
           </div>
           <div class="contact-item">
-            <span class="contact-item-icon">🔗</span>
+            <span class="contact-item-icon">💼</span>
             <div>
               <p class="contact-item-label">LinkedIn</p>
               <a href="https://linkedin.com/in/mariolistyo" target="_blank" class="contact-item-value">linkedin.com/in/mariolistyo</a>
@@ -715,12 +529,10 @@
 <footer>© 2026 Mario Listyo Setiawan · Built with care</footer>
 
 <script>
-  // LOADER
   window.addEventListener('load', () => {
     setTimeout(() => document.getElementById('loader').classList.add('out'), 400);
   });
 
-  // DARK MODE
   const toggle = document.getElementById('themeToggle');
   const stored = localStorage.getItem('theme') || 'light';
   document.documentElement.setAttribute('data-theme', stored);
@@ -730,12 +542,10 @@
     localStorage.setItem('theme', t);
   });
 
-  // NAVBAR SCROLL
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
   });
 
-  // HAMBURGER
   document.getElementById('hamburger').addEventListener('click', () => {
     const m = document.getElementById('mobileMenu');
     m.classList.toggle('open');
@@ -746,9 +556,8 @@
     document.getElementById('hamburger').textContent = '☰';
   }
 
-  // FADE IN ON SCROLL
   const obs = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
+    entries.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
     });
   }, { threshold: 0.12 });
