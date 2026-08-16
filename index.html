@@ -1,573 +1,1093 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Mario Listyo Setiawan — Personal Assistant & Office Administrator</title>
-<meta name="description" content="Portfolio of Mario Listyo Setiawan — Personal Assistant and Office Administrator based in Tangerang, Indonesia." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<script>
-  // Prevent theme flash
-  (function () {
-    try {
-      var t = localStorage.getItem('theme');
-      if (t === 'light') document.documentElement.classList.remove('dark');
-      else document.documentElement.classList.add('dark');
-    } catch (e) {}
-  })();
-</script>
-<style>
-  :root {
-    --bg: #ffffff;
-    --fg: #0a0a0a;
-    --muted: #6b6b6b;
-    --border: #e6e6e6;
-    --muted-bg: #f4f4f4;
-  }
-  html.dark {
-    --bg: #000000;
-    --fg: #ffffff;
-    --muted: #8a8a8a;
-    --border: #1f1f1f;
-    --muted-bg: #0d0d0d;
-  }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-  body {
-    background: var(--bg);
-    color: var(--fg);
-    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    font-weight: 400;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    transition: background-color .25s ease, color .25s ease;
-  }
-  a { color: inherit; text-decoration: none; }
-  ul, ol { margin: 0; padding: 0; list-style: none; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mario Listyo Setiawan — Personal Assistant & Office Administrator</title>
+  <meta name="description" content="Portfolio of Mario Listyo Setiawan — Personal Assistant, Office Administrator, and Executive Support based in Tangerang, Indonesia." />
+  <meta property="og:title" content="Mario Listyo Setiawan — Personal Assistant & Office Administrator" />
+  <meta property="og:description" content="Portfolio of Mario Listyo Setiawan — Personal Assistant, Office Administrator, and Executive Support based in Tangerang, Indonesia." />
+  <meta property="og:type" content="profile" />
+  <meta name="twitter:title" content="Mario Listyo Setiawan — Personal Assistant & Office Administrator" />
+  <meta name="twitter:description" content="Portfolio of Mario Listyo Setiawan — Personal Assistant, Office Administrator, and Executive Support based in Tangerang, Indonesia." />
+  <meta name="twitter:card" content="summary" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --radius: 0.5rem;
+      --background: #ffffff;
+      --foreground: #141414;
+      --muted: #f5f5f5;
+      --muted-foreground: #737373;
+      --border: #e5e5e5;
+      --ring: #141414;
+    }
+    .dark {
+      --background: #000000;
+      --foreground: #ffffff;
+      --muted: #262626;
+      --muted-foreground: #a3a3a3;
+      --border: #333333;
+      --ring: #d9d9d9;
+    }
+    * { box-sizing: border-box; border-color: var(--border); }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background-color: var(--background);
+      color: var(--foreground);
+      font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul, ol { margin: 0; padding: 0; list-style: none; }
+    h1, h2, h3, p { margin: 0; }
 
-  .container { max-width: 1024px; margin: 0 auto; padding: 0 1.5rem; }
-  @media (max-width: 640px) { .container { padding: 0 1.25rem; } }
+    .container {
+      width: 100%;
+      max-width: 1024px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .container { padding-left: 1.5rem; padding-right: 1.5rem; }
+    }
 
-  /* Nav */
-  .nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-    background: color-mix(in srgb, var(--bg) 80%, transparent);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid transparent;
-    transition: border-color .2s ease, background-color .2s ease;
-  }
-  .nav.scrolled { border-bottom-color: var(--border); }
-  .nav-inner {
-    max-width: 1024px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: space-between;
-    gap: .75rem; padding: 1rem 1.5rem;
-  }
-  @media (max-width: 640px) { .nav-inner { padding: .9rem 1.25rem; } }
-  .brand { font-weight: 600; font-size: .875rem; letter-spacing: -0.01em; white-space: nowrap; }
-  .nav-links { display: none; gap: 1.75rem; align-items: center; }
-  .nav-links a { font-size: .875rem; color: var(--muted); transition: color .2s ease; position: relative; }
-  .nav-links a:hover { color: var(--fg); }
-  .nav-links a::after {
-    content: ''; position: absolute; left: 0; bottom: -4px; height: 1px; width: 0;
-    background: var(--fg); transition: width .25s ease;
-  }
-  .nav-links a:hover::after { width: 100%; }
-  @media (min-width: 768px) { .nav-links { display: flex; } }
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid transparent;
+    }
+    .header.scrolled {
+      border-bottom-color: var(--border);
+      background-color: color-mix(in srgb, var(--background) 80%, transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 1rem;
+    }
+    @media (min-width: 640px) {
+      .header-inner { padding: 1rem 1.5rem; }
+    }
+    .brand {
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      cursor: pointer;
+    }
+    .brand-mobile { display: inline; }
+    .brand-desktop { display: none; }
+    @media (min-width: 640px) {
+      .brand-mobile { display: none; }
+      .brand-desktop { display: inline; }
+    }
+    .nav-desktop {
+      display: none;
+      align-items: center;
+      gap: 1.75rem;
+    }
+    @media (min-width: 768px) {
+      .nav-desktop { display: flex; }
+    }
+    .nav-link {
+      position: relative;
+      display: inline-block;
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      transition: color 0.2s ease;
+    }
+    .nav-link:hover { color: var(--foreground); }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 1px;
+      background-color: currentColor;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+    .nav-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .theme-toggle, .menu-toggle {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--foreground);
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .theme-toggle:hover, .menu-toggle:hover { background-color: var(--muted); }
+    .theme-icon {
+      width: 1rem;
+      height: 1rem;
+      transition: all 0.3s ease;
+    }
+    .theme-icon.sun {
+      position: absolute;
+      transform: scale(0) rotate(90deg);
+      opacity: 0;
+    }
+    .theme-icon.moon {
+      position: absolute;
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+    html:not(.dark) .theme-icon.sun {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+    html:not(.dark) .theme-icon.moon {
+      transform: scale(0) rotate(-90deg);
+      opacity: 0;
+    }
+    .menu-toggle { display: inline-flex; }
+    @media (min-width: 768px) {
+      .menu-toggle { display: none; }
+    }
+    .mobile-nav {
+      display: none;
+      border-top: 1px solid var(--border);
+      background-color: var(--background);
+      animation: fadeIn 0.3s ease both;
+    }
+    .mobile-nav.open { display: block; }
+    .mobile-nav-inner {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 1.5rem;
+    }
+    .mobile-nav a {
+      padding: 0.5rem 0;
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      transition: color 0.2s ease;
+    }
+    .mobile-nav a:hover { color: var(--foreground); }
 
-  .toggle-wrap { display: flex; align-items: center; gap: .5rem; }
-  .icon-btn {
-    appearance: none; background: transparent; color: var(--fg);
-    border: 1px solid var(--border); border-radius: 9999px;
-    width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;
-    cursor: pointer; transition: background-color .2s ease, border-color .2s ease;
-  }
-  .icon-btn:hover { background: var(--muted-bg); }
-  .icon-btn svg { width: 16px; height: 16px; }
-  .sun { display: none; }
-  .moon { display: inline; }
-  html.dark .sun { display: inline; }
-  html.dark .moon { display: none; }
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 7rem;
+      padding-bottom: 4rem;
+    }
+    .hero-label {
+      margin-bottom: 1.5rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--muted-foreground);
+    }
+    .hero-title {
+      font-size: 2.25rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+    @media (min-width: 640px) {
+      .hero-title { font-size: 3rem; }
+    }
+    @media (min-width: 768px) {
+      .hero-title { font-size: 4.5rem; }
+    }
+    @media (min-width: 1024px) {
+      .hero-title { font-size: 6rem; }
+    }
+    .hero-desc {
+      margin-top: 2rem;
+      max-width: 42rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--muted-foreground);
+    }
+    @media (min-width: 768px) {
+      .hero-desc { font-size: 1.125rem; }
+    }
+    .hero-actions {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 9999px;
+      padding: 0.625rem 1.25rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .btn-primary {
+      background-color: var(--foreground);
+      color: var(--background);
+    }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-secondary {
+      border: 1px solid var(--border);
+      color: var(--foreground);
+    }
+    .btn-secondary:hover { background-color: var(--muted); }
+    .btn svg {
+      width: 1rem;
+      height: 1rem;
+    }
 
-  /* Sections */
-  section { padding: 6rem 0; }
-  @media (max-width: 640px) { section { padding: 4.5rem 0; } }
-  .section-label {
-    font-size: .75rem; letter-spacing: .25em; text-transform: uppercase; color: var(--muted);
-    margin: 0 0 1rem;
-  }
-  .section-title {
-    font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 600; letter-spacing: -0.02em;
-    margin: 0 0 2.5rem; line-height: 1.15;
-  }
+    /* Sections */
+    .section {
+      border-top: 1px solid var(--border);
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+      opacity: 0;
+      transform: translateY(1rem);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .section.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (min-width: 768px) {
+      .section { padding-top: 7rem; padding-bottom: 7rem; }
+    }
+    .section-label {
+      margin-bottom: 0.75rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted-foreground);
+    }
+    .section-title {
+      font-size: 1.875rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    @media (min-width: 768px) {
+      .section-title { font-size: 2.25rem; }
+    }
+    .section-header { margin-bottom: 3rem; }
+    @media (min-width: 768px) {
+      .section-header { margin-bottom: 4rem; }
+    }
 
-  /* Hero */
-  .hero {
-    min-height: 100vh; display: flex; align-items: center;
-    padding-top: 7rem; padding-bottom: 4rem;
-  }
-  .hero-loc {
-    font-size: .75rem; letter-spacing: .3em; text-transform: uppercase; color: var(--muted);
-    margin: 0 0 1.5rem;
-  }
-  .hero-name {
-    font-size: clamp(2.25rem, 9vw, 7rem);
-    font-weight: 600; letter-spacing: -0.03em; line-height: 1.05;
-    margin: 0 0 2rem;
-  }
-  .hero-tag {
-    font-size: clamp(1rem, 2vw, 1.25rem); color: var(--muted);
-    max-width: 36rem; margin: 0 0 3rem; line-height: 1.6;
-  }
-  .hero-cta {
-    display: inline-flex; align-items: center; gap: .5rem;
-    border: 1px solid var(--fg); padding: .85rem 1.5rem; border-radius: 9999px;
-    font-size: .875rem; transition: background-color .2s ease, color .2s ease;
-  }
-  .hero-cta:hover { background: var(--fg); color: var(--bg); }
-  .hero-cta svg { width: 14px; height: 14px; }
+    /* About */
+    .about-grid {
+      display: grid;
+      gap: 3rem;
+    }
+    @media (min-width: 768px) {
+      .about-grid { grid-template-columns: 3fr 2fr; }
+    }
+    .about-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--muted-foreground);
+    }
+    @media (min-width: 768px) {
+      .about-text { font-size: 1.125rem; }
+    }
+    .facts-list { display: flex; flex-direction: column; gap: 1.25rem; }
+    .fact { border-top: 1px solid var(--border); padding-top: 0.75rem; }
+    .fact-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted-foreground);
+    }
+    .fact-value {
+      margin-top: 0.25rem;
+      font-size: 0.875rem;
+      color: var(--foreground);
+    }
 
-  /* About */
-  .about-grid { display: grid; gap: 3rem; grid-template-columns: 1fr; }
-  @media (min-width: 768px) { .about-grid { grid-template-columns: 3fr 2fr; gap: 3rem; } }
-  .about-copy p { color: var(--muted); font-size: 1.05rem; line-height: 1.7; margin: 0 0 1.25rem; }
-  .facts { display: flex; flex-direction: column; gap: 1.25rem; }
-  .fact { border-top: 1px solid var(--border); padding-top: .75rem; }
-  .fact-label { font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin: 0; }
-  .fact-val { margin: .25rem 0 0; font-size: .9rem; }
+    /* Portfolio */
+    .portfolio-intro {
+      margin-bottom: 2.5rem;
+      max-width: 42rem;
+      color: var(--muted-foreground);
+    }
+    .portfolio-card-wrapper { max-width: 28rem; }
+    .portfolio-card {
+      position: relative;
+      display: block;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      background-color: color-mix(in srgb, var(--muted) 30%, transparent);
+      transition: all 0.3s ease;
+    }
+    .portfolio-card:hover {
+      transform: translateY(-0.25rem);
+      border-color: color-mix(in srgb, var(--foreground) 60%, transparent);
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+    }
+    .portfolio-card:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--ring);
+    }
+    .portfolio-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem;
+      text-align: center;
+      background: linear-gradient(to bottom right, color-mix(in srgb, var(--muted) 40%, transparent), color-mix(in srgb, var(--muted) 10%, transparent));
+    }
+    .portfolio-placeholder svg {
+      width: 2.5rem;
+      height: 2.5rem;
+      color: var(--muted-foreground);
+    }
+    .portfolio-placeholder-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--muted-foreground);
+    }
+    .portfolio-placeholder-name {
+      margin-top: 0.5rem;
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: var(--foreground);
+    }
+    .portfolio-placeholder-hint {
+      margin-top: 0.25rem;
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+    .portfolio-cover {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .portfolio-card:hover .portfolio-cover { transform: scale(1.05); }
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      background: linear-gradient(to top, color-mix(in srgb, var(--background) 90%, transparent), color-mix(in srgb, var(--background) 20%, transparent), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .portfolio-card:hover .portfolio-overlay { opacity: 1; }
+    .portfolio-overlay-inner {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem;
+    }
+    .portfolio-overlay-text {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--foreground);
+    }
+    .portfolio-overlay svg {
+      width: 1rem;
+      height: 1rem;
+      color: var(--foreground);
+    }
+    .portfolio-note {
+      margin-top: 0.75rem;
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+    }
 
-  /* Portfolio */
-  .portfolio-intro { color: var(--muted); max-width: 36rem; margin: 0 0 2.5rem; }
-  .portfolio-wrap { max-width: 28rem; }
-  .portfolio-card {
-    position: relative; display: block; aspect-ratio: 3/4;
-    border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
-    background: var(--muted-bg);
-    transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
-  }
-  .portfolio-card:hover { transform: translateY(-4px); border-color: var(--fg); box-shadow: 0 25px 50px -12px rgba(0,0,0,.4); }
-  .portfolio-placeholder {
-    position: absolute; inset: 0; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 1rem; padding: 2rem; text-align: center;
-  }
-  .portfolio-placeholder svg { width: 40px; height: 40px; color: var(--muted); stroke-width: 1.25; }
-  .portfolio-placeholder .pf-label { font-size: .75rem; letter-spacing: .3em; text-transform: uppercase; color: var(--muted); margin: 0; }
-  .portfolio-placeholder .pf-name { font-size: 1.125rem; font-weight: 500; margin: .5rem 0 .25rem; }
-  .portfolio-placeholder .pf-sub { font-size: .875rem; color: var(--muted); margin: 0; }
-  .portfolio-overlay {
-    position: absolute; inset: 0; display: flex; align-items: flex-end;
-    background: linear-gradient(to top, color-mix(in srgb, var(--bg) 90%, transparent), transparent);
-    opacity: 0; transition: opacity .3s ease;
-  }
-  .portfolio-card:hover .portfolio-overlay { opacity: 1; }
-  .portfolio-overlay-inner {
-    width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem;
-    font-size: .875rem; font-weight: 500;
-  }
-  .portfolio-note { margin: .75rem 0 0; font-size: .75rem; color: var(--muted); }
+    /* Experience */
+    .roles { display: flex; flex-direction: column; gap: 3rem; }
+    .role {
+      display: grid;
+      gap: 1rem;
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+    }
+    @media (min-width: 768px) {
+      .role { grid-template-columns: 200px 1fr; gap: 2.5rem; }
+    }
+    .role-date {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted-foreground);
+    }
+    .role-type {
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+    .role-title { font-size: 1.25rem; font-weight: 500; }
+    @media (min-width: 768px) {
+      .role-title { font-size: 1.5rem; }
+    }
+    .role-company {
+      margin-top: 0.25rem;
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+    .role-bullets {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .role-bullets li {
+      position: relative;
+      padding-left: 1.25rem;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: var(--muted-foreground);
+    }
+    @media (min-width: 768px) {
+      .role-bullets li { font-size: 1rem; }
+    }
+    .role-bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.7em;
+      width: 0.75rem;
+      height: 1px;
+      background-color: var(--muted-foreground);
+    }
 
-  /* Experience */
-  .role { display: grid; gap: 1rem; grid-template-columns: 1fr; border-top: 1px solid var(--border); padding-top: 2rem; }
-  .roles { display: flex; flex-direction: column; gap: 3rem; }
-  @media (min-width: 768px) { .role { grid-template-columns: 200px 1fr; gap: 2.5rem; } }
-  .role-date { font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin: 0; }
-  .role-type { margin: .5rem 0 0; font-size: .875rem; color: var(--muted); }
-  .role-title { font-size: 1.5rem; font-weight: 500; margin: 0; line-height: 1.25; }
-  @media (max-width: 640px) { .role-title { font-size: 1.25rem; } }
-  .role-company { margin: .25rem 0 0; font-size: .875rem; color: var(--muted); }
-  .role-bullets { margin-top: 1rem; display: flex; flex-direction: column; gap: .5rem; }
-  .role-bullets li {
-    position: relative; padding-left: 1.25rem; font-size: .95rem; line-height: 1.6; color: var(--muted);
-  }
-  .role-bullets li::before {
-    content: ''; position: absolute; left: 0; top: .75em; width: 12px; height: 1px; background: var(--muted);
-  }
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      gap: 2.5rem;
+    }
+    @media (min-width: 768px) {
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .skill-group { border-top: 1px solid var(--border); padding-top: 1.5rem; }
+    .skill-group-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted-foreground);
+    }
+    .skill-tags {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .skill-tag {
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+      padding: 0.375rem 0.75rem;
+      font-size: 0.875rem;
+      color: var(--foreground);
+      transition: background-color 0.2s ease;
+    }
+    .skill-tag:hover { background-color: var(--muted); }
 
-  /* Skills */
-  .skill-groups { display: grid; gap: 2.5rem; grid-template-columns: 1fr; }
-  @media (min-width: 768px) { .skill-groups { grid-template-columns: 1fr 1fr; } }
-  .skill-group { border-top: 1px solid var(--border); padding-top: 1.5rem; }
-  .skill-group h3 { font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin: 0 0 1rem; font-weight: 400; }
-  .skill-list { display: flex; flex-wrap: wrap; gap: .5rem; }
-  .skill-list li {
-    border: 1px solid var(--border); padding: .375rem .75rem; border-radius: 9999px;
-    font-size: .875rem; transition: background-color .2s ease;
-  }
-  .skill-list li:hover { background: var(--muted-bg); }
+    /* Education */
+    .education-row {
+      display: grid;
+      gap: 1rem;
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+    }
+    @media (min-width: 768px) {
+      .education-row { grid-template-columns: 200px 1fr; gap: 2.5rem; }
+    }
+    .education-title { font-size: 1.25rem; font-weight: 500; }
+    @media (min-width: 768px) {
+      .education-title { font-size: 1.5rem; }
+    }
+    .education-school {
+      margin-top: 0.25rem;
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+    .education-focus {
+      margin-top: 0.75rem;
+      font-size: 0.875rem;
+      line-height: 1.6;
+      color: var(--muted-foreground);
+    }
+    @media (min-width: 768px) {
+      .education-focus { font-size: 1rem; }
+    }
 
-  /* Education */
-  .edu { border-top: 1px solid var(--border); padding-top: 2rem; display: grid; gap: 1rem; grid-template-columns: 1fr; }
-  @media (min-width: 768px) { .edu { grid-template-columns: 200px 1fr; gap: 2.5rem; } }
-  .edu-date { font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin: 0; }
-  .edu-title { font-size: 1.5rem; font-weight: 500; margin: 0; }
-  @media (max-width: 640px) { .edu-title { font-size: 1.25rem; } }
-  .edu-school { margin: .25rem 0 0; font-size: .875rem; color: var(--muted); }
-  .edu-desc { margin: .75rem 0 0; color: var(--muted); font-size: .95rem; }
+    /* Certifications */
+    .certs-list {
+      border-top: 1px solid var(--border);
+    }
+    .cert {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    @media (min-width: 768px) {
+      .cert { flex-direction: row; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    }
+    .cert-name { font-size: 1rem; color: var(--foreground); }
+    @media (min-width: 768px) {
+      .cert-name { font-size: 1.125rem; }
+    }
+    .cert-issuer { font-size: 0.875rem; color: var(--muted-foreground); }
+    .cert-date {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted-foreground);
+      flex-shrink: 0;
+    }
 
-  /* Certifications */
-  .cert-list { border-top: 1px solid var(--border); }
-  .cert-list li {
-    display: flex; flex-direction: column; gap: .25rem; padding: 1.25rem 0;
-    border-bottom: 1px solid var(--border);
-  }
-  @media (min-width: 768px) {
-    .cert-list li { flex-direction: row; align-items: center; justify-content: space-between; gap: 1.5rem; }
-  }
-  .cert-name { font-size: 1.05rem; margin: 0; }
-  .cert-issuer { font-size: .875rem; color: var(--muted); margin: .15rem 0 0; }
-  .cert-date { font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+    /* Footer / Contact */
+    .contact-intro {
+      margin-bottom: 2.5rem;
+      max-width: 42rem;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--muted-foreground);
+    }
+    @media (min-width: 768px) {
+      .contact-intro { font-size: 1.125rem; }
+    }
+    .contact-links { border-top: 1px solid var(--border); }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.5rem 0.25rem;
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.2s ease;
+    }
+    .contact-link:hover { background-color: color-mix(in srgb, var(--muted) 30%, transparent); }
+    .contact-link-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted-foreground);
+    }
+    .contact-link-value {
+      margin-top: 0.25rem;
+      font-size: 1.125rem;
+      font-weight: 500;
+    }
+    @media (min-width: 768px) {
+      .contact-link-value { font-size: 1.5rem; }
+    }
+    .contact-link svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--muted-foreground);
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    .contact-link:hover svg {
+      color: var(--foreground);
+      transform: translate(0.125rem, -0.125rem);
+    }
+    .footer-bottom {
+      margin-top: 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
+    }
+    @media (min-width: 768px) {
+      .footer-bottom { flex-direction: row; align-items: center; justify-content: space-between; }
+    }
 
-  /* Contact */
-  .contact-intro { max-width: 36rem; color: var(--muted); margin: 0 0 2.5rem; font-size: 1.05rem; line-height: 1.7; }
-  .contact-list { border-top: 1px solid var(--border); }
-  .contact-list a {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.5rem .25rem; border-bottom: 1px solid var(--border);
-    transition: background-color .2s ease;
-  }
-  .contact-list a:hover { background: color-mix(in srgb, var(--muted-bg) 50%, transparent); }
-  .contact-label { font-size: .75rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin: 0; }
-  .contact-value { font-size: 1.25rem; font-weight: 500; margin: .25rem 0 0; }
-  @media (min-width: 768px) { .contact-value { font-size: 1.5rem; } }
-  .contact-list svg { width: 20px; height: 20px; color: var(--muted); transition: transform .2s ease, color .2s ease; }
-  .contact-list a:hover svg { color: var(--fg); transform: translate(2px, -2px); }
-  .footer-bottom {
-    margin-top: 4rem; display: flex; flex-direction: column; gap: .5rem;
-    font-size: .75rem; color: var(--muted);
-  }
-  @media (min-width: 768px) { .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; } }
-
-  /* Animations */
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
-  .reveal.in { opacity: 1; transform: none; }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
-  .hero-loc, .hero-name, .hero-tag, .hero-cta { animation: fadeIn .8s ease both; }
-  .hero-name { animation-delay: .1s; }
-  .hero-tag { animation-delay: .25s; }
-  .hero-cta { animation-delay: .4s; }
-</style>
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(1rem); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in { animation: fadeInUp 0.7s ease-out both; }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-600 { animation-delay: 0.6s; }
+  </style>
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('theme');
+        var d = t ? t === 'dark' : true;
+        document.documentElement.classList.toggle('dark', d);
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
 </head>
 <body>
-
-<header class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="#top" class="brand" id="brand">
-      <span class="brand-full">Mario Listyo Setiawan</span>
-    </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="#about">About</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <div class="toggle-wrap">
-      <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
-        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-      </button>
-    </div>
-  </div>
-</header>
-
-<main>
-  <section id="top" class="hero">
-    <div class="container">
-      <p class="hero-loc">Tangerang, Indonesia</p>
-      <h1 class="hero-name">Mario Listyo<br>Setiawan.</h1>
-      <p class="hero-tag">Personal Assistant & Office Administrator — supporting executives and teams with calendar management, correspondence, and seamless day-to-day operations.</p>
-      <a class="hero-cta" href="#contact">
-        Get in touch
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" id="brand" aria-label="Back to top">
+        <span class="brand-mobile">MLS</span>
+        <span class="brand-desktop">Mario Listyo Setiawan</span>
       </a>
-    </div>
-  </section>
-
-  <section id="about">
-    <div class="container reveal">
-      <p class="section-label">01 — About</p>
-      <h2 class="section-title">A reliable hand behind the scenes.</h2>
-      <div class="about-grid">
-        <div class="about-copy">
-          <p>I'm a Personal Assistant and Office Administrator with demonstrated experience managing executive schedules, handling multi-stakeholder correspondence, and maintaining confidential records across concurrent remote roles.</p>
-          <p>I've supported 100+ program participants across simultaneous engagements — consistently delivering zero scheduling gaps, on-time reporting, and seamless day-to-day operations. Certified in Administrative Assistance by Microsoft, with additional training in HR operations and project coordination.</p>
-        </div>
-        <dl class="facts">
-          <div class="fact"><dt class="fact-label">English</dt><dd class="fact-val">TOEIC 875 · C1</dd></div>
-          <div class="fact"><dt class="fact-label">Location</dt><dd class="fact-val">Tangerang, ID</dd></div>
-          <div class="fact"><dt class="fact-label">Availability</dt><dd class="fact-val">Remote · Open</dd></div>
-          <div class="fact"><dt class="fact-label">Languages</dt><dd class="fact-val">EN · ID</dd></div>
-        </dl>
+      <nav class="nav-desktop">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#portfolio" class="nav-link">Portfolio</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Switch theme">
+          <svg class="theme-icon sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+          <svg class="theme-icon moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
       </div>
     </div>
-  </section>
+    <div class="mobile-nav" id="mobileNav">
+      <div class="container mobile-nav-inner">
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
 
-  <section id="portfolio">
-    <div class="container reveal">
-      <p class="section-label">02 — Portfolio</p>
-      <h2 class="section-title">Selected work.</h2>
-      <p class="portfolio-intro">A curated portfolio of selected projects and case studies. Click the cover to open the full document.</p>
+  <main>
+    <section id="top" class="hero">
+      <div class="container">
+        <p class="hero-label animate-fade-in delay-100">Tangerang, Indonesia</p>
+        <h1 class="hero-title animate-fade-in delay-200">Mario Listyo<br />Setiawan.</h1>
+        <p class="hero-desc animate-fade-in delay-400">
+          AI-Enabled Personal Assistant · Executive & Administrative Support.
+          Proactive and detail-oriented, supporting founders and programs with
+          zero scheduling gaps and seamless day-to-day operations.
+        </p>
+        <div class="hero-actions animate-fade-in delay-600">
+          <a href="mailto:jobs@mariolistyo.com" class="btn btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            jobs@mariolistyo.com
+          </a>
+          <a href="#about" class="btn btn-secondary">
+            Explore
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
 
-      <div class="portfolio-wrap">
-        <a id="portfolioLink" class="portfolio-card" href="https://drive.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Mario Listyo Setiawan's portfolio">
-          <div class="portfolio-placeholder" id="portfolioPlaceholder">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">01 — About</p>
+          <h2 class="section-title">A reliable hand behind the scenes.</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>I'm an AI-enabled Personal Assistant with internship and volunteer experience supporting executive-level scheduling, correspondence, and cross-functional coordination in fully remote settings.</p>
+            <p>I've delivered zero scheduling gaps and reduced a supervisor's administrative workload by an estimated 70% through proactive calendar and communication management, integrating AI tools into daily workflows for speed and accuracy. C1 Advanced English (TOEIC 875) with strong command of Google Workspace, Notion, ClickUp, and Slack — plus a background in HR operations that adds versatility to administrative support roles.</p>
+          </div>
+          <dl class="facts-list">
+            <div class="fact">
+              <dt class="fact-label">English</dt>
+              <dd class="fact-value">TOEIC 875 · C1 Advanced</dd>
+            </div>
+            <div class="fact">
+              <dt class="fact-label">Location</dt>
+              <dd class="fact-value">Tangerang, ID</dd>
+            </div>
+            <div class="fact">
+              <dt class="fact-label">Availability</dt>
+              <dd class="fact-value">Remote · Open</dd>
+            </div>
+            <div class="fact">
+              <dt class="fact-label">Recognition</dt>
+              <dd class="fact-value">Contributor of the Month — Harisenin.com, May 2026</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">02 — Portfolio</p>
+          <h2 class="section-title">Selected work.</h2>
+        </div>
+        <p class="portfolio-intro">A curated portfolio of selected projects and case studies. Click the cover to open the full document.</p>
+        <div class="portfolio-card-wrapper">
+          <a href="https://drive.google.com/" target="_blank" rel="noopener noreferrer" class="portfolio-card" aria-label="Open Mario Listyo Setiawan's portfolio in a new tab">
+            <div class="portfolio-placeholder">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+              <div>
+                <p class="portfolio-placeholder-label">Portfolio</p>
+                <p class="portfolio-placeholder-name">Mario Listyo Setiawan</p>
+                <p class="portfolio-placeholder-hint">Cover coming soon</p>
+              </div>
+            </div>
+            <div class="portfolio-overlay">
+              <div class="portfolio-overlay-inner">
+                <span class="portfolio-overlay-text">View portfolio</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              </div>
+            </div>
+          </a>
+          <p class="portfolio-note">Opens in a new tab · Google Drive</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">03 — Experience</p>
+          <h2 class="section-title">Where I've worked.</h2>
+        </div>
+        <ol class="roles">
+          <li class="role">
             <div>
-              <p class="pf-label">Portfolio</p>
-              <p class="pf-name">Mario Listyo Setiawan</p>
-              <p class="pf-sub">Cover coming soon</p>
+              <p class="role-date">Jun 2026 – Present</p>
+              <p class="role-type">Internship · Fully Remote — Indonesia</p>
             </div>
-          </div>
-          <div class="portfolio-overlay">
-            <div class="portfolio-overlay-inner">
-              <span>View portfolio</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <div>
+              <h3 class="role-title">Executive Assistant to the Founder</h3>
+              <p class="role-company">Kanca Bahasa</p>
+              <ul class="role-bullets">
+                <li>Represented Kanca Bahasa in collaborations with up to 3 active partner organizations at a time — including Ruang Mandarin, PT International Test Center, Solve Education, Indorelawan, and Seputar Pelatihan — held concurrently with the HR Class Administrator role below.</li>
+                <li>Acted as authorized signatory on partnership documents on behalf of the founder, using VIDA for secure e-signature execution and LastPass to safeguard confidential founder-level credentials, while managing day-to-day partner correspondence via email and WhatsApp.</li>
+                <li>Scheduled and maintained meetings between the founder and external partners using Calendly and Google Calendar, with Gemini supporting time coordination, and documented meeting outcomes for internal reference.</li>
+                <li>Tracked project timelines and partnership deliverables in Notion, proactively flagging upcoming deadlines and priority items to the founder.</li>
+                <li>Managed the operational budget provided by Solve Education for app subscriptions — primarily Zoom and Google Meet — supporting uninterrupted program delivery.</li>
+                <li>Designed presentation decks and collaboration proposals for partnership discussions, and provided live technical support (screen sharing, troubleshooting) during founder-led presentations to external organizations.</li>
+              </ul>
             </div>
-          </div>
-        </a>
-        <p class="portfolio-note">Opens in a new tab · Google Drive</p>
+          </li>
+          <li class="role">
+            <div>
+              <p class="role-date">Apr 2026 – Present</p>
+              <p class="role-type">Internship · Fully Remote — Central Jakarta</p>
+            </div>
+            <div>
+              <h3 class="role-title">Human Resource Class Administrator</h3>
+              <p class="role-company">Harisenin.com</p>
+              <ul class="role-bullets">
+                <li>Administered end-to-end scheduling and logistics for 300+ bootcamp participants across 3 career paths (HR Generalist, Training & Development, Talent Acquisition), maintaining 100% on-schedule delivery with zero session gaps.</li>
+                <li>Served as primary point of contact between 300+ participants and a cross-functional team of 8 Assistant Mentors, the Class Manager, Talent Consultant, HR, and Class Moderators — triaging communications to keep daily operations running without escalation.</li>
+                <li>Built and maintained real-time participant databases and reports in Google Sheets, distributed to stakeholders on a recurring schedule.</li>
+                <li>Coordinated weekly live consultation sessions for 8 Assistant Mentors, serving as liaison between the Class Manager and mentors on urgent matters via WhatsApp and Slack.</li>
+                <li>Designed AI-assisted communication templates to standardize participant correspondence, improving response consistency and turnaround time across 4 program batches.</li>
+                <li>Maintained calm, constructive communication when handling participant complaints, applying de-escalation techniques to resolve concerns professionally and preserve program relationships.</li>
+                <li>Managed the Google Classroom LMS end-to-end across 4 consecutive batches — participant invitations, mission assignments, content uploads, link setup, and form distribution.</li>
+                <li>Guided participants through HR concept application including Manpower Planning (MPP), SOP development, training budgeting, payroll and benefits, HR compliance, recruitment, CV screening, employer branding, and OKR frameworks.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="role">
+            <div>
+              <p class="role-date">Dec 2025 – Jun 2026</p>
+              <p class="role-type">Volunteer · Fully Remote — Indonesia</p>
+            </div>
+            <div>
+              <h3 class="role-title">Personal Assistant to English Tutor</h3>
+              <p class="role-company">Kanca Bahasa</p>
+              <ul class="role-bullets">
+                <li>Managed the tutor's full weekly schedule across 5–8 sessions per week — scheduling, reminders, and rescheduling via Google Calendar — ensuring zero missed sessions over a 5-month engagement.</li>
+                <li>Served as primary communications liaison between the tutor and 100+ participants across multiple classes, filtering and routing correspondence to reduce the tutor's administrative load by an estimated 70%.</li>
+                <li>Independently prepared class materials, session outlines, and pre-session briefing notes using AI tools, contributing input on learning content decisions to align sessions with participant needs.</li>
+                <li>Organized and maintained learning content archives, ensuring class resources remained accessible and well structured throughout the engagement.</li>
+                <li>Designed session decks and interactive icebreaker activities using Mentimeter and Quizizz to increase participant engagement.</li>
+                <li>Provided live technical support during sessions, stepping in whenever the tutor encountered technical difficulties to keep sessions running smoothly.</li>
+                <li>Proactively anticipated tutor needs by preparing post-session summaries, agenda previews, and follow-up action items.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="experience">
-    <div class="container reveal">
-      <p class="section-label">03 — Experience</p>
-      <h2 class="section-title">Where I've worked.</h2>
-      <ol class="roles" id="roles"></ol>
-    </div>
-  </section>
-
-  <section id="skills">
-    <div class="container reveal">
-      <p class="section-label">04 — Skills</p>
-      <h2 class="section-title">What I bring to the table.</h2>
-      <div class="skill-groups" id="skillGroups"></div>
-    </div>
-  </section>
-
-  <section id="education">
-    <div class="container reveal">
-      <p class="section-label">05 — Education</p>
-      <h2 class="section-title">Background.</h2>
-      <div class="edu">
-        <p class="edu-date">Aug 2019 – Aug 2023</p>
-        <div>
-          <h3 class="edu-title">Bachelor of Education — Educational Technology</h3>
-          <p class="edu-school">Universitas Negeri Malang</p>
-          <p class="edu-desc">Focus: Instructional Design, Learning Technology, Training Program Development.</p>
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">04 — Skills</p>
+          <h2 class="section-title">What I bring to the table.</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3 class="skill-group-label">Executive Support</h3>
+            <ul class="skill-tags">
+              <li class="skill-tag">Calendar & Schedule Management</li>
+              <li class="skill-tag">Executive Correspondence</li>
+              <li class="skill-tag">Travel & Local Transport Coordination (Gojek, Grab)</li>
+              <li class="skill-tag">Expense & Petty Cash Tracking</li>
+              <li class="skill-tag">Presentation & Deck Prep (Canva)</li>
+              <li class="skill-tag">Meeting Coordination</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group-label">Confidentiality</h3>
+            <ul class="skill-tags">
+              <li class="skill-tag">LastPass</li>
+              <li class="skill-tag">VIDA e-Signature</li>
+              <li class="skill-tag">Adobe Acrobat</li>
+              <li class="skill-tag">Document Security</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group-label">Platforms</h3>
+            <ul class="skill-tags">
+              <li class="skill-tag">Google Workspace</li>
+              <li class="skill-tag">Notion</li>
+              <li class="skill-tag">ClickUp</li>
+              <li class="skill-tag">Trello</li>
+              <li class="skill-tag">Slack</li>
+              <li class="skill-tag">Microsoft Office</li>
+              <li class="skill-tag">Calendly</li>
+              <li class="skill-tag">Dropbox</li>
+              <li class="skill-tag">Zoom</li>
+              <li class="skill-tag">Teams</li>
+              <li class="skill-tag">Google Meet</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group-label">AI Tools</h3>
+            <ul class="skill-tags">
+              <li class="skill-tag">ChatGPT</li>
+              <li class="skill-tag">Gemini</li>
+              <li class="skill-tag">Claude</li>
+              <li class="skill-tag">Fathom</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group-label">HR Systems & Operations</h3>
+            <ul class="skill-tags">
+              <li class="skill-tag">HashMicro</li>
+              <li class="skill-tag">Odoo</li>
+              <li class="skill-tag">Talenta (HRIS)</li>
+              <li class="skill-tag">Onboarding Support</li>
+              <li class="skill-tag">SOP Development</li>
+              <li class="skill-tag">Data Entry & Record Management</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group-label">Languages</h3>
+            <ul class="skill-tags">
+              <li class="skill-tag">Indonesian (Native)</li>
+              <li class="skill-tag">English — TOEIC 875 / CEFR C1 Advanced</li>
+              <li class="skill-tag">Bilingual Communication</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="certifications">
-    <div class="container reveal">
-      <p class="section-label">06 — Certifications</p>
-      <h2 class="section-title">Credentials & training.</h2>
-      <ul class="cert-list" id="certList"></ul>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container reveal">
-      <p class="section-label">07 — Contact</p>
-      <h2 class="section-title">Let's work together.</h2>
-      <p class="contact-intro">Open to remote Personal Assistant, Executive Support, and Office Administration roles. The fastest way to reach me is by email.</p>
-      <ul class="contact-list" id="contactList"></ul>
-      <div class="footer-bottom">
-        <p>© <span id="year"></span> Mario Listyo Setiawan. All rights reserved.</p>
-        <p>Tangerang, Indonesia</p>
+    <section id="education" class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">05 — Education</p>
+          <h2 class="section-title">Background.</h2>
+        </div>
+        <div class="education-row">
+          <p class="role-date">Aug 2019 – Aug 2023</p>
+          <div>
+            <h3 class="education-title">Bachelor of Education — Educational Technology</h3>
+            <p class="education-school">Universitas Negeri Malang</p>
+            <p class="education-focus">Focus: Instructional Design, Learning Technology, Training Program Development.</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
 
-<script>
-  // ============== DATA ==============
-  const ROLES = [
-    {
-      title: "Executive Assistant to the Founder",
-      company: "Kanca Bahasa",
-      type: "Internship · Remote — Indonesia",
-      date: "Jun 2026 – Present",
-      bullets: [
-        "Supported founder in managing external communications with partner organizations for collaboration and partnership initiatives.",
-        "Coordinated and maintained meeting schedules between the founder and external partners, ensuring timely and well-prepared engagements.",
-        "Managed project timelines and tracked progress to ensure all deliverables and commitments were completed on schedule.",
-        "Prepared documents, forms, and administrative materials required by external partners and collaborating organizations.",
-        "Proactively reminded founder of urgent tasks, upcoming deadlines, and priority items to support smooth daily operations.",
-        "Documented meeting outcomes and compiled notes from coordination meetings between the founder and external partner organizations.",
-        "Assisted founder in preparing presentation materials and collaboration proposals for partnership discussions with external organizations."
-      ]
-    },
-    {
-      title: "Human Resource Class Administrator",
-      company: "Harisenin.com",
-      type: "Internship · Remote — Central Jakarta",
-      date: "Apr 2026 – Present",
-      bullets: [
-        "Administered end-to-end scheduling and logistics for 100+ HR bootcamp participants across 3 program phases (preparation, execution, closeout), maintaining 100% on-schedule delivery with zero session gaps.",
-        "Served as primary point of contact (PIC) between 100+ participants, 10+ mentors, and HR/L&D/Operations teams, triaging communications to keep daily operations running without escalation.",
-        "Built and maintained real-time participant databases, attendance records, and learning progress trackers in Google Sheets; produced periodic administrative reports for cross-functional stakeholders.",
-        "Coordinated multi-party scheduling with Assistant Mentors using ClickUp and Slack, proactively resolving logistics conflicts before they impacted program delivery.",
-        "Supported participants in applying core HR concepts including OKR & KPI, Manpower Planning (MPP), Training Needs Analysis (TNA), and Payroll Administration.",
-        "Assisted participants in developing practical HR deliverables: CV Screening frameworks, Training Syllabi, and Company SOPs.",
-        "Collected participant feedback and produced structured evaluation reports supporting continuous program quality improvement."
-      ]
-    },
-    {
-      title: "Personal Assistant to English Tutor",
-      company: "Kanca Bahasa",
-      type: "Volunteer · Remote — Indonesia",
-      date: "Dec 2025 – Jun 2026",
-      bullets: [
-        "Managed tutor's full weekly schedule across 5–8 sessions per week via Google Calendar, ensuring zero missed sessions over a 5-month engagement.",
-        "Primary communications liaison between tutor and 30+ program participants, reducing tutor's administrative load by an estimated 70%.",
-        "Independently prepared class materials, session outlines, and pre-session briefing notes using Google Slides and Canva.",
-        "Maintained strict confidentiality of tutor and organizational data using LastPass for secure credential management.",
-        "Acted as sole Program-in-Charge (PIC) for a joint TOEIC ETS certification scholarship program with ITC — managing the full lifecycle from recruitment through partner reporting.",
-        "Served as primary relationship manager between ITC and Kanca Bahasa, submitting structured daily progress reports throughout the engagement.",
-        "Produced Kirkpatrick Level 1 & 2 post-program evaluation reports assessing participant satisfaction and measurable learning outcomes.",
-        "Served as technical support PIC during live TOEIC examinations, resolving real-time issues to ensure uninterrupted assessment delivery."
-      ]
+    <section id="certifications" class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">06 — Certifications</p>
+          <h2 class="section-title">Credentials & training.</h2>
+        </div>
+        <ul class="certs-list">
+          <li class="cert"><div><p class="cert-name">Certified Professional Personal Assistant (CPPA)</p><p class="cert-issuer">ESAS Management</p></div><span class="cert-date">Jun 2026</span></li>
+          <li class="cert"><div><p class="cert-name">Virtual Assistant Professional Training</p><p class="cert-issuer">Quantum HR Indonesia</p></div><span class="cert-date">Jan 2026</span></li>
+          <li class="cert"><div><p class="cert-name">Business Etiquette: Phone, Email, and Text</p><p class="cert-issuer">LinkedIn Learning · HRCI Pre-Approved</p></div><span class="cert-date">Jan 2026</span></li>
+          <li class="cert"><div><p class="cert-name">Career Essentials in Administrative Assistance</p><p class="cert-issuer">Microsoft & LinkedIn</p></div><span class="cert-date">Jan 2026</span></li>
+          <li class="cert"><div><p class="cert-name">Administrative Professional Foundations</p><p class="cert-issuer">LinkedIn Learning</p></div><span class="cert-date">Jan 2026</span></li>
+          <li class="cert"><div><p class="cert-name">Communication Foundations</p><p class="cert-issuer">LinkedIn Learning · PMI Registered Education Provider</p></div><span class="cert-date">Jan 2026</span></li>
+          <li class="cert"><div><p class="cert-name">Outlook: Time Management with Calendar and Tasks</p><p class="cert-issuer">LinkedIn Learning</p></div><span class="cert-date">Jan 2026</span></li>
+          <li class="cert"><div><p class="cert-name">Microsoft 365</p><p class="cert-issuer">LinkedIn Learning</p></div><span class="cert-date">Jan 2026</span></li>
+          <li class="cert"><div><p class="cert-name">Basic Excel 101</p><p class="cert-issuer">Course Certificate</p></div><span class="cert-date">Dec 2025</span></li>
+          <li class="cert"><div><p class="cert-name">HR Generalist: Recruitment & Selection, SOP Development, Performance Management, L&D</p><p class="cert-issuer">Talentiv</p></div><span class="cert-date">Nov–Dec 2025</span></li>
+          <li class="cert"><div><p class="cert-name">PowerPoint 2019 Associate</p><p class="cert-issuer">Certiport</p></div><span class="cert-date">Jun 2022</span></li>
+          <li class="cert"><div><p class="cert-name">PMI: Project Management Ready</p><p class="cert-issuer">MyEdusolve</p></div><span class="cert-date">2022</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">07 — Contact</p>
+          <h2 class="section-title">Let's work together.</h2>
+        </div>
+        <p class="contact-intro">Open to remote Personal Assistant, Executive Support, and Office Administration roles. The fastest way to reach me is by email.</p>
+        <ul class="contact-links">
+          <li>
+            <a href="mailto:jobs@mariolistyo.com" class="contact-link">
+              <div>
+                <p class="contact-link-label">Email</p>
+                <p class="contact-link-value">jobs@mariolistyo.com</p>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10"/><path d="M7 17h10"/><path d="M7 12h10"/><path d="M7 2h10l5 5v10l-5 5H7l-5-5V7l5-5z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com/in/mariolistyo" target="_blank" rel="noreferrer" class="contact-link">
+              <div>
+                <p class="contact-link-label">LinkedIn</p>
+                <p class="contact-link-value">linkedin.com/in/mariolistyo</p>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10"/><path d="M7 17h10"/><path d="M7 12h10"/><path d="M7 2h10l5 5v10l-5 5H7l-5-5V7l5-5z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://mariolistyo.com" target="_blank" rel="noreferrer" class="contact-link">
+              <div>
+                <p class="contact-link-label">Website</p>
+                <p class="contact-link-value">mariolistyo.com</p>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10"/><path d="M7 17h10"/><path d="M7 12h10"/><path d="M7 2h10l5 5v10l-5 5H7l-5-5V7l5-5z"/></svg>
+            </a>
+          </li>
+        </ul>
+        <div class="footer-bottom">
+          <p>© 2026 Mario Listyo Setiawan. All rights reserved.</p>
+          <p>Tangerang, Indonesia</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    function updateThemeIcon() {
+      const isDark = document.documentElement.classList.contains('dark');
+      themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
     }
-  ];
-
-  const SKILL_GROUPS = [
-    { label: "Administrative", items: ["Calendar & Schedule Management","Correspondence Handling","Document Preparation & Filing","Data Entry","Meeting Coordination","Reporting & Documentation","Confidentiality Management"] },
-    { label: "Tools & Platforms", items: ["Google Workspace","Microsoft 365","Notion","ClickUp","Trello","Slack","Zoom","Google Meet","Canva","LastPass"] },
-    { label: "HR & Operations", items: ["Participant Onboarding","Program Administration","Cross-functional Coordination","Feedback Collection","SOP Support"] },
-    { label: "Languages", items: ["Indonesian (Native)","English — TOEIC 875 / C1 Advanced"] }
-  ];
-
-  const CERTS = [
-    { name: "Certified Professional Personal Assistant", issuer: "ESAS Management", date: "Jun 2026" },
-    { name: "Virtual Assistant & Secretary", issuer: "Harisenin", date: "May 2026" },
-    { name: "Career Essentials in Administrative Assistance", issuer: "Microsoft", date: "Jan 2026" },
-    { name: "HR Generalist: Recruitment, SOP, Performance, L&D", issuer: "Talentiv", date: "Nov–Dec 2025" },
-    { name: "L&D Professional Training: Competency Mapping, Training Design & Measurement", issuer: "Talentiv", date: "Jan 2026" },
-    { name: "Learning Designer", issuer: "IODA Academy", date: "Dec 2025 – Jan 2026" },
-    { name: "Training Needs Analysis for L&D", issuer: "IODA Academy", date: "Dec 2025" },
-    { name: "PMI: Project Management Ready", issuer: "MyEdusolve", date: "2022" },
-    { name: "Microsoft Certified Educator · PowerPoint · Microsoft 365 & Office 2019", issuer: "MyEdusolve", date: "2022" }
-  ];
-
-  const CONTACTS = [
-    { label: "Email", value: "jobs@mariolistyo.com", href: "mailto:jobs@mariolistyo.com" },
-    { label: "LinkedIn", value: "linkedin.com/in/mariolistyo", href: "https://linkedin.com/in/mariolistyo" },
-    { label: "Website", value: "mariolistyo.com", href: "https://mariolistyo.com" }
-  ];
-
-  // ⬇️ Replace with your Google Drive portfolio link when ready
-  const PORTFOLIO_URL = "https://drive.google.com/";
-  const COVER_IMAGE_URL = ""; // optional direct image URL
-
-  // ============== RENDER ==============
-  const esc = (s) => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-
-  document.getElementById('roles').innerHTML = ROLES.map(r => `
-    <li class="role">
-      <div>
-        <p class="role-date">${esc(r.date)}</p>
-        <p class="role-type">${esc(r.type)}</p>
-      </div>
-      <div>
-        <h3 class="role-title">${esc(r.title)}</h3>
-        <p class="role-company">${esc(r.company)}</p>
-        <ul class="role-bullets">${r.bullets.map(b => `<li>${esc(b)}</li>`).join('')}</ul>
-      </div>
-    </li>
-  `).join('');
-
-  document.getElementById('skillGroups').innerHTML = SKILL_GROUPS.map(g => `
-    <div class="skill-group">
-      <h3>${esc(g.label)}</h3>
-      <ul class="skill-list">${g.items.map(i => `<li>${esc(i)}</li>`).join('')}</ul>
-    </div>
-  `).join('');
-
-  document.getElementById('certList').innerHTML = CERTS.map(c => `
-    <li>
-      <div>
-        <p class="cert-name">${esc(c.name)}</p>
-        <p class="cert-issuer">${esc(c.issuer)}</p>
-      </div>
-      <span class="cert-date">${esc(c.date)}</span>
-    </li>
-  `).join('');
-
-  document.getElementById('contactList').innerHTML = CONTACTS.map(l => `
-    <li><a href="${esc(l.href)}" ${l.href.startsWith('http') ? 'target="_blank" rel="noreferrer"' : ''}>
-      <div>
-        <p class="contact-label">${esc(l.label)}</p>
-        <p class="contact-value">${esc(l.value)}</p>
-      </div>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-    </a></li>
-  `).join('');
-
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Portfolio link + optional cover
-  const portfolioLink = document.getElementById('portfolioLink');
-  portfolioLink.setAttribute('href', PORTFOLIO_URL);
-  if (COVER_IMAGE_URL) {
-    document.getElementById('portfolioPlaceholder').outerHTML =
-      `<img src="${esc(COVER_IMAGE_URL)}" alt="Portfolio cover" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" loading="lazy" />`;
-  }
-
-  // Responsive brand text
-  const brand = document.querySelector('.brand-full');
-  function updateBrand() {
-    brand.textContent = window.innerWidth < 640 ? 'MLS' : 'Mario Listyo Setiawan';
-  }
-  updateBrand();
-  window.addEventListener('resize', updateBrand);
-
-  // Brand click → smooth scroll to top
-  document.getElementById('brand').addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  // Theme toggle
-  document.getElementById('themeToggle').addEventListener('click', () => {
-    const root = document.documentElement;
-    const isDark = root.classList.toggle('dark') === false ? false : root.classList.contains('dark');
-    localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
-  });
-
-  // Nav border on scroll
-  const nav = document.getElementById('nav');
-  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
-
-  // Smooth scroll anchors
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      const id = a.getAttribute('href');
-      if (id.length > 1 && document.querySelector(id)) {
-        e.preventDefault();
-        document.querySelector(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+    themeToggle.addEventListener('click', function() {
+      const isDark = document.documentElement.classList.contains('dark');
+      const next = !isDark;
+      document.documentElement.classList.toggle('dark', next);
+      try { localStorage.setItem('theme', next ? 'dark' : 'light'); } catch (e) {}
+      updateThemeIcon();
     });
-  });
+    updateThemeIcon();
 
-  // Reveal on scroll
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(en => {
-      if (en.isIntersecting) {
-        en.target.classList.add('in');
-        io.unobserve(en.target);
-      }
+    // Mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const menuIcon = document.getElementById('menuIcon');
+    const menuOpenPath = '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>';
+    const menuClosedPath = '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>';
+    let isMenuOpen = false;
+    menuToggle.addEventListener('click', function() {
+      isMenuOpen = !isMenuOpen;
+      mobileNav.classList.toggle('open', isMenuOpen);
+      menuIcon.innerHTML = isMenuOpen ? menuOpenPath : menuClosedPath;
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-</script>
+    document.querySelectorAll('.mobile-nav a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        isMenuOpen = false;
+        mobileNav.classList.remove('open');
+        menuIcon.innerHTML = menuClosedPath;
+      });
+    });
+
+    // Scroll header background
+    const header = document.getElementById('header');
+    function onScroll() {
+      header.classList.toggle('scrolled', window.scrollY > 8);
+    }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Smooth scroll to top for brand
+    document.getElementById('brand').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Intersection reveal
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.section').forEach(function(section) {
+      observer.observe(section);
+    });
+
+    // Current year in footer
+    const yearEls = document.querySelectorAll('.footer-bottom p:first-child');
+    if (yearEls.length) {
+      yearEls[0].textContent = '© ' + new Date().getFullYear() + ' Mario Listyo Setiawan. All rights reserved.';
+    }
+  </script>
 </body>
 </html>
