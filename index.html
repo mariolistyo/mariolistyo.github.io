@@ -632,6 +632,28 @@
       color: var(--foreground);
       transform: translate(0.125rem, -0.125rem);
     }
+    .cert-folder-link {
+      margin-bottom: 2.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+      background-color: var(--background);
+      padding: 0.625rem 1.25rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--foreground);
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .cert-folder-link:hover {
+      background-color: var(--foreground);
+      color: var(--background);
+    }
+    .cert-folder-link svg {
+      width: 1rem;
+      height: 1rem;
+    }
     .footer-bottom {
       margin-top: 4rem;
       display: flex;
@@ -958,6 +980,10 @@
           <p class="section-label">06 — Certifications</p>
           <h2 class="section-title">Credentials & training.</h2>
         </div>
+        <a href="https://drive.google.com/drive/folders/13aaL6Wo_OQlfvTd5nzzsX9XPgP3sMPao?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Open Mario Listyo Setiawan's certification folder in Google Drive" class="cert-folder-link">
+          View all certifications
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
         <ul class="certs-list">
           <li class="cert"><div><p class="cert-name">Certified Professional Personal Assistant (CPPA)</p><p class="cert-issuer">ESAS Management</p></div><span class="cert-date">Jun 2026</span></li>
           <li class="cert"><div><p class="cert-name">Virtual Assistant Professional Training</p><p class="cert-issuer">Quantum HR Indonesia</p></div><span class="cert-date">Jan 2026</span></li>
